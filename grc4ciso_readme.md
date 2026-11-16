@@ -14,12 +14,68 @@ The platform has the following functionalities:
 - ISMS: Information Security Management System (based on ISO27001:2022).
 - Compliance.
 
+### ***GRC Architecture Overview***
+
+The **grc4ciso** platform follows a Top-Down architecture designed to protect organizational data through a structured Governance, Risk, and Compliance framework. 
+
+This diagram illustrates how compliance requirements drive control implementation, which in turn mitigates risks across critical business assets.
+
+```mermaid
+flowchart TD
+    %% Styling Definitions
+    classDef risk fill:#e74c3c,color:#fff,stroke:#c0392b,stroke-width:2px
+    classDef control fill:#2980b9,color:#fff,stroke:#2471a3,stroke-width:2px
+    classDef comp fill:#f39c12,color:#fff,stroke:#d68910,stroke-width:2px
+    classDef asset fill:#27ae60,color:#fff,stroke:#1e8449,stroke-width:2px
+    classDef data fill:#8e44ad,color:#fff,stroke:#732d91,stroke-width:2px
+    classDef support fill:#34495e,color:#fff,stroke:#2c3e50,stroke-width:2px
+
+    %% Core GRC Modules
+    COMP[Compliance Requirements]:::comp
+    CTRL[Controls]:::control
+    RM[Risk Management]:::risk
+
+    %% Assets and Data
+    subgraph Targets [Targets of Evaluation / Assets]
+        IT[IT Systems]:::asset
+        VEND[Vendors / Third Parties]:::asset
+        AI[AI Components]:::asset
+        PROC[Business Processes]:::asset
+    end
+    
+    DATA[(Data)]:::data
+
+    %% Core Relationships
+    COMP -->|Linked to demonstrate compliance <br/> with security requirements| CTRL
+    CTRL -->|Mitigates inherent risks <br/> Design & Effectiveness evaluated <br/> for Residual Risk| RM
+    RM -->|Assesses & Evaluates| Targets
+    
+    IT -->|Stores, Processes, Transmits| DATA
+    VEND -->|Stores, Processes, Transmits| DATA
+    AI -->|Stores, Processes, Transmits| DATA
+    PROC -->|Stores, Processes, Transmits| DATA
+
+    %% Transversal Support Modules
+    subgraph SupportModules [GRC Support Modules]
+        direction LR
+        ISMS[ISMS ISO 27001 <br/> Deployment]:::support
+        BIA[Business Impact <br/> Analysis - BIA]:::support
+        DASH[Dashboards <br/> & Reports]:::support
+    end
+
+    %% Support Connections
+    SupportModules -.- RM
+    SupportModules -.- CTRL
+    SupportModules -.- COMP
+```
+
 ## **Asset Management**
 
 Assets that enable the organization to achieve business purposes are identified and managed consistent with their relative importance to organizational objectives and the organization’s risk strategy.
 
 Understanding the organization’s assets (e.g., data, hardware, software, systems, facilities, services, people), suppliers, and related cybersecurity risks enables an organization to prioritize its efforts consistent with its risk management strategy and the mission needs.
 
+### **Data Asset**
 
 ```mermaid
 graph TD;
@@ -28,15 +84,13 @@ graph TD;
     A[Data Asset]--accessed by-->D[Suppliers];
 ```
 
-### **Data Asset**
-
 The primary catalog is the Data Asset Catalog, because ultimately, data is what we aim to protect. If data is exposed or compromised, it can have a significant negative impact on the organization. This module is designed to register the company’s critical data assets.
 
 Some attributes captured here include: asset name, data classification, asset owner, IT systems, processes where data is managed, and vendors with access to that data.
 
 Record your data assets in as much detail as possible. This information will allow us to accurately assess potential impacts on the organization and define the most appropriate risk management strategies for these assets.
 
-<img width="1770" height="615" alt="530070113-62fda848-f5dc-460c-b210-6a8969327a0c" src="https://github.com/user-attachments/assets/1b750a64-7c14-4d24-a6ed-686b357f5dce" />
+
 
 #### **Field Descriptions and Guidelines**
 
