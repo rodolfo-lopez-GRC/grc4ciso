@@ -166,6 +166,20 @@ Vendors play a vital role in your organization’s operations, but they also int
 
 ## **Risk Management**
 
+In order to executre a risk assessment on IT systems, processes or vendors, we first need to understand the context of the organization and define the risk metrics.
+Organizational context is important in order to evluate the impact to the business when a vulnerability or lack of control is exploited in an IT system, process or if a vendor materialized a risk that affect our systems or expose sensitive data.
+
+The risk metrics that are defined are: impact level, likelihood level, risk level, risk category and control design and efectiveness metricts that are used to calculate residual risks.
+Regarding the organizational context, at least the following aspects are suggested to be documented: 
+- External and internal factors
+- The interested parties that are interested on the security controls like customers, regulators, management/board,
+- Security requirements should be also identified so the company should comply with
+- Organizational objetives that can be impacted in case a cyber risk be materilized.
+- Products and services the copany offers.
+- And identify strategic risks (not necesaryly technical risk) but business risk that can be materialized if a cyber risk is materilized.
+The approach that is captured in grc4ciso is a top down approach that can enable to connect the business requirements with cyber technical aspects, so these two aspects be connected and can provide value to the organization.
+
+
 You can evaluate risks using CVSS (Common Vulnerability Score System) calculator integrated in the risk module.
 
 <img width="685" height="415" alt="337298446-21335b85-f667-45c4-9d60-c39e65bbee7e" src="https://github.com/user-attachments/assets/d6feeee2-7fd0-43ea-b76c-f5ae2117bdad" />
