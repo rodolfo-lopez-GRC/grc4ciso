@@ -166,18 +166,41 @@ Vendors play a vital role in your organization’s operations, but they also int
 
 ## **Risk Management**
 
-In order to executre a risk assessment on IT systems, processes or vendors, we first need to understand the context of the organization and define the risk metrics.
-Organizational context is important in order to evluate the impact to the business when a vulnerability or lack of control is exploited in an IT system, process or if a vendor materialized a risk that affect our systems or expose sensitive data.
+## Organizational Context and Risk Metrics
 
-The risk metrics that are defined are: impact level, likelihood level, risk level, risk category and control design and efectiveness metricts that are used to calculate residual risks.
-Regarding the organizational context, at least the following aspects are suggested to be documented: 
-- External and internal factors
-- The interested parties that are interested on the security controls like customers, regulators, management/board,
-- Security requirements should be also identified so the company should comply with
-- Organizational objetives that can be impacted in case a cyber risk be materilized.
-- Products and services the copany offers.
-- And identify strategic risks (not necesaryly technical risk) but business risk that can be materialized if a cyber risk is materilized.
-The approach that is captured in grc4ciso is a top down approach that can enable to connect the business requirements with cyber technical aspects, so these two aspects be connected and can provide value to the organization.
+Before assessing risks associated with IT systems, business processes, or third-party vendors, it is essential to understand the organization's context and define the metrics that will be used to evaluate risk.
+
+The organizational context helps determine the potential business impact of events such as:
+
+- The exploitation of a vulnerability in an IT system.
+- The failure or absence of a security control.
+- The materialization of a risk associated with a business process.
+- A third-party incident that affects the organization's systems, operations, or sensitive data.
+
+GRC4CISO uses the following metrics to support consistent risk assessments:
+
+- Impact level
+- Likelihood level
+- Risk level
+- Risk category
+- Control design
+- Control effectiveness
+
+Control design and effectiveness metrics are also used to determine residual risk after considering the controls currently in place.
+
+At a minimum, the organizational context should document the following:
+
+- **Internal and external factors** that may affect the organization's information security objectives.
+- **Interested parties**, such as customers, regulators, executive management, and the board of directors, as well as their expectations regarding information security and cybersecurity controls.
+- **Security, legal, regulatory, contractual, and business requirements** with which the organization must comply.
+- **Organizational objectives** that could be affected if a cybersecurity risk materializes.
+- **Products and services** offered by the organization.
+- **Strategic business risks** that could be triggered or intensified by a cybersecurity event, even when those risks are not primarily technical.
+
+GRC4CISO follows a top-down approach that connects business objectives, stakeholder expectations, and compliance requirements with technical cybersecurity risks and controls.
+
+
+
 
 
 You can evaluate risks using CVSS (Common Vulnerability Score System) calculator integrated in the risk module.
