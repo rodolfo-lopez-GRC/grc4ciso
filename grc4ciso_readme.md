@@ -14,7 +14,7 @@ The platform has the following functionalities:
 - ISMS: Information Security Management System (based on ISO27001:2022).
 - Compliance.
 
-### ***GRC Architecture Overview***
+### **GRC Architecture Overview**
 
 The **grc4ciso** platform follows a Top-Down architecture designed to protect organizational data through a structured Governance, Risk, and Compliance framework. 
 
