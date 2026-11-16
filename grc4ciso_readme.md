@@ -156,17 +156,12 @@ flowchart TD
 
 ### **Business Process**
 
-This is a high-level catalog of the processes where critical data is managed. Cybersecurity should be addressed not only from a technical systems perspective, but also by considering the processes in which data is handled, as well as the people and suppliers who have access to it.
+This is a high-level catalog of the processes where critical data is managed. Cybersecurity should be addressed not only from a technical systems perspective, but also by considering the processes in which data is handled.
 
 
 ### **Vendors**
 
-Vendors play a vital role in your organization’s operations, but they also introduce significant security and compliance risks. Many suppliers have access to your systems, sensitive data, or processing environments, which makes proper oversight essential.
-
-To safeguard your organization, it is crucial to identify suppliers with access to critical data or systems. This enables you to perform a comprehensive vendor or supplier risk assessment as part of your overall risk management process. Effective supplier risk management helps mitigate potential threats, ensures regulatory compliance, and strengthens your organization’s data protection posture.
-
-
-
+Vendors play a vital role in your organization’s operations, but they also introduce significant security and compliance risks. Many suppliers have access to your systems, sensitive data, or processing environments, which makes proper oversight essential. To safeguard your organization, it is crucial to identify suppliers with access to critical data or systems. This enables you to perform a comprehensive vendor risk assessment as part of your overall risk management process. Effective supplier risk management helps mitigate potential threats, ensures regulatory compliance, and strengthens your organization’s data protection posture.
 
 
 ## **Risk Management**
