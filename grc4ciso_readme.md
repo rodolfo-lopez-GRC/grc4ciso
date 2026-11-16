@@ -199,9 +199,123 @@ At a minimum, the organizational context should document the following:
 
 GRC4CISO follows a top-down approach that connects business objectives, stakeholder expectations, and compliance requirements with technical cybersecurity risks and controls.
 
+```mermaid
 
 
+flowchart TD
+    A["Organizational Context"]
 
+    subgraph CTX["Understand the Organization"]
+        B1["Internal and External Factors"]
+        B2["Interested Parties"]
+        B3["Security, Legal, Regulatory and Contractual Requirements"]
+        B4["Organizational Objectives"]
+        B5["Products and Services"]
+        B6["Strategic Business Risks"]
+    end
+
+    A --> B1
+    A --> B2
+    A --> B3
+    A --> B4
+    A --> B5
+    A --> B6
+
+    B1 --> C["Define Risk Assessment Scope"]
+    B2 --> C
+    B3 --> C
+    B4 --> C
+    B5 --> C
+    B6 --> C
+
+    C --> D1["IT Systems"]
+    C --> D2["Business Processes"]
+    C --> D3["Third-Party Vendors"]
+
+    D1 --> E["Identify Risk Scenarios"]
+    D2 --> E
+    D3 --> E
+
+    E --> E1["Vulnerability Exploitation"]
+    E --> E2["Missing or Ineffective Controls"]
+    E --> E3["Process Failure"]
+    E --> E4["Third-Party Incident"]
+    E --> E5["Sensitive Data Exposure"]
+
+    E1 --> F["Assess Inherent Risk"]
+    E2 --> F
+    E3 --> F
+    E4 --> F
+    E5 --> F
+
+    subgraph METRICS["Risk Metrics"]
+        G1["Impact Level"]
+        G2["Likelihood Level"]
+        G3["Risk Level"]
+        G4["Risk Category"]
+    end
+
+    G1 --> F
+    G2 --> F
+    F --> G3
+    F --> G4
+
+    F --> H["Identify and Evaluate Controls"]
+
+    subgraph CONTROLS["Control Evaluation"]
+        I1["Control Design"]
+        I2["Control Effectiveness"]
+        I3["Supporting Evidence"]
+    end
+
+    H --> I1
+    H --> I2
+    H --> I3
+
+    I1 --> J["Calculate Residual Risk"]
+    I2 --> J
+    I3 --> J
+    F --> J
+
+    J --> K{"Is Residual Risk Acceptable?"}
+
+    K -- "Yes" --> L["Accept and Monitor Risk"]
+    K -- "No" --> M["Define Risk Treatment Plan"]
+
+    M --> N1["Mitigate"]
+    M --> N2["Avoid"]
+    M --> N3["Transfer"]
+    M --> N4["Accept with Approval"]
+
+    N1 --> O["Implement or Improve Controls"]
+    N2 --> O
+    N3 --> O
+    N4 --> O
+
+    O --> H
+    L --> P["Protect Business Objectives and Deliver Value"]
+
+    B4 -. "Business alignment" .-> P
+    B6 -. "Strategic risk alignment" .-> P
+    B3 -. "Compliance alignment" .-> P
+
+    classDef context fill:#e8f1fb,stroke:#2563a6,color:#102a43
+    classDef scope fill:#e9f7ef,stroke:#27864a,color:#173b25
+    classDef risk fill:#fff4db,stroke:#c98600,color:#513500
+    classDef control fill:#f2eafd,stroke:#7546a8,color:#321653
+    classDef decision fill:#fdecec,stroke:#b93b3b,color:#531919
+    classDef outcome fill:#e5f6f5,stroke:#14817a,color:#083d3a
+
+    class A,B1,B2,B3,B4,B5,B6 context
+    class C,D1,D2,D3 scope
+    class E,E1,E2,E3,E4,E5,F,G1,G2,G3,G4 risk
+    class H,I1,I2,I3,O control
+    class J,K,M,N1,N2,N3,N4 decision
+    class L,P outcome
+```
+
+
+    
 
 You can evaluate risks using CVSS (Common Vulnerability Score System) calculator integrated in the risk module.
 
