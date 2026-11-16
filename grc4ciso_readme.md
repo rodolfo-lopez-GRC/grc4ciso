@@ -95,17 +95,21 @@ Record your data assets in as much detail as possible. This information will all
 ### **IT System**
 
 This is a high-level catalog of the organization’s critical platforms. It is not intended to be a CMDB (Configuration Management Database), but rather a registry of system platforms that support critical processes or store, transmit, or process critical data.
-Each IT system is mapped with the IT Components that support the IT system, in the IT component some attributes are requiered like IP, URL, TCP ports open, IT admin.
-AI platforms are registered in this module as well, in this case the AI components are related so the risk assessment consider these type of components in order to identify wich controls should designed and implemented in order to mitigate risks.
+Each IT system is mapped with the IT Components that support or make up the IT systems, in the IT component some attributes are requiered like IP, URL, TCP ports open, IT admin.
+AI components (mcp servers, AI hosts, LLM models, AI apps) are registered as part of IT Systems, with this approach AI components are clearly identified/invetoired so risk assessment can be donde over these IT systems considering alls these components in the assessment.
+
+The **IT Inventory** module in **grc4ciso** serves as a high-level risk registry of critical platforms rather than a granular CMDB. It focuses exclusively on system platforms that support critical business processes or handle sensitive data. 
+
+To ensure comprehensive threat visibility, **IT Systems** are mapped to their underlying technical makeup. Crucially, **AI Components** (such as MCP servers, LLMs, and AI apps) are registered directly as parts of these IT Systems. This guarantees that when a Risk Assessment is performed on a platform, all traditional and AI-specific attack surfaces are explicitly identified and evaluated.
 
 ```mermaid
 flowchart TD
-    %% Styling Definitions (Consistent with Core Architecture)
+    %% Styling Definitions
     classDef business fill:#34495e,color:#fff,stroke:#2c3e50,stroke-width:2px
     classDef data fill:#8e44ad,color:#fff,stroke:#732d91,stroke-width:2px
     classDef system fill:#27ae60,color:#fff,stroke:#1e8449,stroke-width:2px
-    classDef ai fill:#16a085,color:#fff,stroke:#117864,stroke-width:2px
     classDef component fill:#ecf0f1,color:#2c3e50,stroke:#7f8c8d,stroke-width:2px,text-align:left
+    classDef aicomponent fill:#d1f2eb,color:#117864,stroke:#1abc9c,stroke-width:2px,text-align:left
     classDef risk fill:#e74c3c,color:#fff,stroke:#c0392b,stroke-width:2px
     classDef control fill:#2980b9,color:#fff,stroke:#2471a3,stroke-width:2px
 
@@ -117,36 +121,36 @@ flowchart TD
     end
 
     %% Platform Registry Layer
-    subgraph Registry [IT & AI Platform Registry]
-        direction LR
-        ITSYS[IT Systems <br/> Critical Platforms]:::system
-        AISYS[AI Platforms <br/> LLMs, Agents, ML Models]:::ai
+    subgraph Registry [IT Inventory Module]
+        ITSYS[Critical IT System / Platform]:::system
     end
 
     %% Technical Components Layer
-    subgraph Components [Underlying Technical Components]
+    subgraph Components [System Makeup / Underlying Components]
         direction LR
-        ITCOMP["<b>IT Components</b><br/>• IP Address<br/>• URL / Endpoint<br/>• Open TCP Ports<br/>• IT Admin Owner"]:::component
-        AICOMP["<b>AI Components</b><br/>• Model / API Endpoint<br/>• Data Pipeline / Vector DB<br/>• Guardrails & Integrations<br/>• AI / IT Admin Owner"]:::component
+        ITCOMP["<b>IT Components</b><br/>• IP Address / URL<br/>• Open TCP Ports<br/>• IT Admin Owner"]:::component
+        AICOMP["<b>AI Components</b><br/>• MCP Servers & AI Hosts<br/>• LLM Models<br/>• AI Apps"]:::aicomponent
     end
 
     %% GRC Governance Layer
-    RM[Risk Management <br/> Threat & Attack Surface Assessment]:::risk
-    CTRL[Security Controls <br/> Technical & AI-Specific Safeguards]:::control
+    RM[Risk Management <br/> Platform Risk Assessment]:::risk
+    CTRL[Security Controls <br/> Technical & AI Safeguards]:::control
 
-    %% Relationships
+    %% Core Relationships
     ITSYS -->|Supports| PROC
     ITSYS -->|Stores, Processes, Transmits| DATA
-    AISYS -->|Supports| PROC
-    AISYS -->|Stores, Processes, Transmits| DATA
 
-    ITSYS -->|Mapped to| ITCOMP
-    AISYS -->|Mapped to| AICOMP
+    %% Component Mapping
+    ITSYS ===>|Made up of| ITCOMP
+    ITSYS ===>|Integrates| AICOMP
 
-    ITCOMP -->|Evaluated in| RM
-    AICOMP -->|Evaluated in| RM
+    %% Assessment Flow
+    ITSYS -->|Subjected to| RM
+    ITCOMP -.->|Considered in assessment| RM
+    AICOMP -.->|Considered in assessment| RM
     
-    CTRL -->|Designed & Implemented <br/> to mitigate component risks| RM
+    %% Mitigation
+    CTRL -->|Designed & Implemented <br/> to mitigate platform risks| RM
 ```
 
 
