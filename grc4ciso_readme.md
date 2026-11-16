@@ -73,7 +73,7 @@ flowchart TD
 
 Assets that enable the organization to achieve business purposes are identified and managed consistent with their relative importance to organizational objectives and the organization’s risk strategy.
 
-Understanding the organization’s assets (e.g., data, hardware, software, systems, facilities, services, people), suppliers, and related cybersecurity risks enables an organization to prioritize its efforts consistent with its risk management strategy and the mission needs.
+Understanding the organization’s assets like data, IT systems, AI components, vendors, and processes and related cybersecurity risks enables an organization to prioritize its efforts consistent with its risk management strategy and the mission needs.
 
 ### **Data Asset**
 
@@ -86,102 +86,74 @@ graph TD;
 
 The primary catalog is the Data Asset Catalog, because ultimately, data is what we aim to protect. If data is exposed or compromised, it can have a significant negative impact on the organization. This module is designed to register the company’s critical data assets.
 
-Some attributes captured here include: asset name, data classification, asset owner, IT systems, processes where data is managed, and vendors with access to that data.
+Some attributes captured here include: asset name, data classification, asset owner, IT systems, processes where data is managed, vendors with access to that data and AI components where data is accessed/used.
 
 Record your data assets in as much detail as possible. This information will allow us to accurately assess potential impacts on the organization and define the most appropriate risk management strategies for these assets.
 
-
-
-#### **Field Descriptions and Guidelines**
-
-The Data Asset module is designed to help organizations register, classify, and manage critical data assets for governance, risk, and compliance purposes. Below are the fields available in this module and their recommended usage:
-
-**Asset Name**
-
-Definition: A unique identifier for the data asset.
-
-Guideline: Use a clear, descriptive name that reflects the type of data and its business relevance.
-
-Example: Cardholder Data, Customer Records, Employee Payroll Information.
-
-**Description**
-
-Definition: A detailed explanation of the data asset.
-
-Guideline: Include the nature of the data, its components, and any regulatory or compliance relevance.
-
-Example: This includes personally identifiable information (PII) associated with the cardholder, such as name, expiration date, primary account number (PAN), service code, PIN, EMV chip data, and card security codes.
-
-**Data Classification**
-
-Definition: Indicates the sensitivity level of the data.
-
-Guideline: Align with organizational data classification policy. Common levels include: Public: Data that can be shared freely. Internal: Data for internal use only. Confidential: Sensitive data requiring protection. Restricted: Highly sensitive data with strict access controls.
-
-Example: Confidential.
-
-**Asset Owner**
-
-Definition: The individual responsible for managing and protecting the data asset.
-
-Guideline: Assign ownership to someone accountable for compliance and security.
-
-Example: Designated employee or department head.
-
-**Retention Period**
-
-Definition: The duration for which the data must be retained.
-
-Guideline: Specify in years, months, or days, based on legal and business requirements.
-
-Example: 2 years.
-
-**Recovery Point Objective (RPO)**
-
-Definition: The maximum acceptable amount of data loss measured in time.
-
-Fields: RPO Value: Numeric value (e.g., 4). RPO Unit: Time unit (e.g., Hours). RPO Total Hours: Calculated total based on value and unit.
-
-Guideline: Define based on business continuity and disaster recovery plans.
-
-Example: RPO Value: 1, RPO Unit: Hours, RPO Total Hours: 1.00.
-
-**Business Impact Analysis (BIA) Section**
-
-This section evaluates the impact of disruption on the data asset: Impact Category: Type of impact (e.g., Financial, Operational, Regulatory). Impact Level: Severity (Low, Medium, High). Disruption Time Value: Numeric value for allowable downtime. Disruption Time Unit: Unit of time (Hours, Days). Disruption Duration Total Hours: Calculated downtime in hours.
-
-Description: Additional details about the impact scenario.
-
-Guideline: Use this section to support risk prioritization and recovery planning.
-
-> [!NOTE]
-> **NIST Risk Management Framework (RMF)**
->
-> One of the steps of the NIST RMF has to do with Categorize the system and the information processed, stored, and transmitted by the system based on an analysis of the impact of loss. This analisys can be done in the Data Asset module, since here you evaluate the impact of loss of a data asset considering the type of data, processess, IT systems that store, process or transmit the data.
->
-> Impact of loss is one of four risk factors considered during risk assessment activities—the other three factors being threats, vulnerabilities, and likelihood of occurrence [SP 800-30]. Organizations leverage risk assessment results when categorizing information and systems.
->
-
-> [!NOTE]
-> Ensure all fields are completed accurately to maintain compliance and support risk management.
->
-> Regularly review and update data asset records to reflect changes in business processes or regulations.
->
-> Align retention and classification policies with applicable standards (e.g., PCI DSS, GDPR, HIPAA).
-
+<img width="1325" height="487" alt="image" src="https://github.com/user-attachments/assets/49a4a29f-2eb6-49c1-8ae8-534d083fbcc4" />
 
 ### **IT System**
 
 This is a high-level catalog of the organization’s critical platforms. It is not intended to be a CMDB (Configuration Management Database), but rather a registry of system platforms that support critical processes or store, transmit, or process critical data.
-Some attributes captured here include: system name, description, IT components, IP addresses, URLs, ports, and responsible parties.
+Each IT system is mapped with the IT Components that support the IT system, in the IT component some attributes are requiered like IP, URL, TCP ports open, IT admin.
+AI platforms are registered in this module as well, in this case the AI components are related so the risk assessment consider these type of components in order to identify wich controls should designed and implemented in order to mitigate risks.
 
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/a0b85ffc-6bb2-48d7-b265-c9c711c59bb3">
+```mermaid
+flowchart TD
+    %% Styling Definitions (Consistent with Core Architecture)
+    classDef business fill:#34495e,color:#fff,stroke:#2c3e50,stroke-width:2px
+    classDef data fill:#8e44ad,color:#fff,stroke:#732d91,stroke-width:2px
+    classDef system fill:#27ae60,color:#fff,stroke:#1e8449,stroke-width:2px
+    classDef ai fill:#16a085,color:#fff,stroke:#117864,stroke-width:2px
+    classDef component fill:#ecf0f1,color:#2c3e50,stroke:#7f8c8d,stroke-width:2px,text-align:left
+    classDef risk fill:#e74c3c,color:#fff,stroke:#c0392b,stroke-width:2px
+    classDef control fill:#2980b9,color:#fff,stroke:#2471a3,stroke-width:2px
+
+    %% Business Context Layer
+    subgraph Context [Business & Data Context]
+        direction LR
+        PROC[Critical Business Processes]:::business
+        DATA[(Critical Data <br/> PII / PHI / PCI / IP)]:::data
+    end
+
+    %% Platform Registry Layer
+    subgraph Registry [IT & AI Platform Registry]
+        direction LR
+        ITSYS[IT Systems <br/> Critical Platforms]:::system
+        AISYS[AI Platforms <br/> LLMs, Agents, ML Models]:::ai
+    end
+
+    %% Technical Components Layer
+    subgraph Components [Underlying Technical Components]
+        direction LR
+        ITCOMP["<b>IT Components</b><br/>• IP Address<br/>• URL / Endpoint<br/>• Open TCP Ports<br/>• IT Admin Owner"]:::component
+        AICOMP["<b>AI Components</b><br/>• Model / API Endpoint<br/>• Data Pipeline / Vector DB<br/>• Guardrails & Integrations<br/>• AI / IT Admin Owner"]:::component
+    end
+
+    %% GRC Governance Layer
+    RM[Risk Management <br/> Threat & Attack Surface Assessment]:::risk
+    CTRL[Security Controls <br/> Technical & AI-Specific Safeguards]:::control
+
+    %% Relationships
+    ITSYS -->|Supports| PROC
+    ITSYS -->|Stores, Processes, Transmits| DATA
+    AISYS -->|Supports| PROC
+    AISYS -->|Stores, Processes, Transmits| DATA
+
+    ITSYS -->|Mapped to| ITCOMP
+    AISYS -->|Mapped to| AICOMP
+
+    ITCOMP -->|Evaluated in| RM
+    AICOMP -->|Evaluated in| RM
+    
+    CTRL -->|Designed & Implemented <br/> to mitigate component risks| RM
+```
+
 
 ### **Business Process**
 
 This is a high-level catalog of the processes where critical data is managed. Cybersecurity should be addressed not only from a technical systems perspective, but also by considering the processes in which data is handled, as well as the people and suppliers who have access to it.
 
-<img width="1362" height="252" alt="523479867-b6028b28-cd9f-4d68-949f-262b876a71c9" src="https://github.com/user-attachments/assets/cf02fa25-dbca-4e33-a5bf-1bf17c1ae469" />
 
 ### **Vendors**
 
@@ -189,45 +161,8 @@ Vendors play a vital role in your organization’s operations, but they also int
 
 To safeguard your organization, it is crucial to identify suppliers with access to critical data or systems. This enables you to perform a comprehensive vendor or supplier risk assessment as part of your overall risk management process. Effective supplier risk management helps mitigate potential threats, ensures regulatory compliance, and strengthens your organization’s data protection posture.
 
-<img width="1347" height="327" alt="523480685-a2b16344-8784-4e4b-a5ac-d1de43c9ba74-2" src="https://github.com/user-attachments/assets/bfd8ad54-0194-4e34-a7b6-6d985c8232d7" />
 
-### **Reports**
 
-Also you can generate reports and charts about TCP ports, IT components, data classification, business processes.
-
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/b32fcd5d-175c-4bd2-936e-884e26099221">
-
-### **Notes and Tips**
-
-> [!NOTE]
-> **RTO (Recovery Time Objective)**
-> 
-> Definition: The maximum acceptable amount of time that a system, application, or process can be down after a disruption before significantly impacting the organization.
-> 
-> Focus: Time to restore services.
-> 
-> Application:
-> 
-> For IT systems: How long you can tolerate a system being offline (e.g., email server must be restored within 2 hours).
-> 
-> For business processes: Maximum downtime allowable before operations are severely impacted (e.g., order processing must resume within 4 hours).
-> 
-> For data assets: How long you can go without accessing critical data.
-
-> [!NOTE]
-> **RPO (Recovery Point Objective)**
->
-> Definition: The maximum acceptable amount of data loss measured in time, i.e., how far back in time from the point of failure you can go and still recover data without serious consequences.
->
-> Focus: Data loss tolerance.
->
-> Application:
->
-> For IT systems: How frequently data must be backed up (e.g., backups every 15 minutes for transactional databases)
->
-> For business processes: How much data associated with a process can be lost (e.g., 30 minutes of unprocessed transactions).
->
-> For data assets: Indicates the age of files or data that must be recoverable (e.g., no more than 1 hour of lost data).
 
 
 ## **Risk Management**
