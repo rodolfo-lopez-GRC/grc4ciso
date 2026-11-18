@@ -466,6 +466,29 @@ Busca instrucciones sospechosas.
 Calcula un score preliminar.
 Devuelve un diccionario para Odoo.
 
+MCP scanner
+
+
+<img width="945" height="464" alt="image" src="https://github.com/user-attachments/assets/54fb0264-55bc-4fc1-b1fe-4f2d02d02dc0" />
+
+MCP tools
+
+<img width="1046" height="518" alt="image" src="https://github.com/user-attachments/assets/f30ed490-906e-4aff-9cb4-1e8858e8d8f3" />
+
+MCP Resources
+
+<img width="930" height="546" alt="image" src="https://github.com/user-attachments/assets/477b76fb-2ff1-48da-abe9-9fa1fae6851f" />
+
+MCP prompts
+
+<img width="1026" height="494" alt="image" src="https://github.com/user-attachments/assets/d7336753-d50b-47cb-af1b-266f4dc3235e" />
+
+MCP Findings
+
+<img width="1190" height="116" alt="image" src="https://github.com/user-attachments/assets/2c701d95-99ab-4f73-91ed-b1aabf616ea7" />
+
+
+
 ## **Control**
 
 Once you identify and evaluate risks, you should design the controls to mitigate such risks, so in the control module you can design, evaluate, and approve controls.
