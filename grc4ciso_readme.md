@@ -2,71 +2,99 @@
 
 ## **Introduction**
 
-This project provides you a GRC (Governance, Risk and Compliance) platform focused to manage Cybersecurity risks, control design, compliance and AI related risks considering risks.
+GRC4CISO is an open-source Governance, Risk, and Compliance (GRC) platform for managing cybersecurity risks, AI-related risks, security controls, and compliance requirements.
 
-With this platform, you can deploy ISO 27001:2022 as an Information Security Management System, perform cybersecurity risk analysis and evaluation, design and implement controls, and generate reports to demonstrate trust to your customers, stakeholders, and regulators—while ensuring compliance with cybersecurity requirements and regulations.
+It helps organizations establish and operate an Information Security Management System (ISMS) based on ISO/IEC 27001:2022, conduct risk assessments, manage security controls, track compliance, and generate evidence-based reports for customers, stakeholders, auditors, and regulators.
 
-The platform has the following functionalities:
+Core Capabilities:
 
-- Asset management.
-- Cyber/AI Risk Management and Control.
-- BIA.
-- ISMS: Information Security Management System (based on ISO27001:2022).
-- Compliance.
+- Asset management
+- Cybersecurity risk management
+- AI risk management
+- Security control management
+- ISO/IEC 27001:2022 ISMS management
+- Compliance tracking and reporting
 
 ### **GRC Architecture Overview**
 
-The **grc4ciso** platform follows a Top-Down architecture designed to protect organizational data through a structured Governance, Risk, and Compliance framework. 
+GRC4CISO follows a top-down governance model that translates business objectives and regulatory, contractual, and organizational requirements into risk assessments, control activities, measurable evidence, and continual improvement.
 
-This diagram illustrates how compliance requirements drive control implementation, which in turn mitigates risks across critical business assets.
+The diagram illustrates how governance requirements define the evaluation scope, including business processes, information assets, IT systems, third parties, and AI components. Risks affecting these elements are identified and assessed, appropriate treatments and controls are selected, and control effectiveness is evaluated to determine residual risk. Evidence generated throughout this process supports compliance assessments, reporting, audits, and informed decision-making.
 
 ```mermaid
 flowchart TD
-    %% Styling Definitions
-    classDef risk fill:#e74c3c,color:#fff,stroke:#c0392b,stroke-width:2px
-    classDef control fill:#2980b9,color:#fff,stroke:#2471a3,stroke-width:2px
-    classDef comp fill:#f39c12,color:#fff,stroke:#d68910,stroke-width:2px
-    classDef asset fill:#27ae60,color:#fff,stroke:#1e8449,stroke-width:2px
-    classDef data fill:#8e44ad,color:#fff,stroke:#732d91,stroke-width:2px
-    classDef support fill:#34495e,color:#fff,stroke:#2c3e50,stroke-width:2px
+    %% Style Definitions
+    classDef governance fill:#34495e,color:#ffffff,stroke:#2c3e50,stroke-width:2px
+    classDef requirement fill:#f39c12,color:#ffffff,stroke:#d68910,stroke-width:2px
+    classDef scope fill:#27ae60,color:#ffffff,stroke:#1e8449,stroke-width:2px
+    classDef risk fill:#e74c3c,color:#ffffff,stroke:#c0392b,stroke-width:2px
+    classDef control fill:#2980b9,color:#ffffff,stroke:#2471a3,stroke-width:2px
+    classDef assurance fill:#8e44ad,color:#ffffff,stroke:#732d91,stroke-width:2px
+    classDef reporting fill:#5d6d7e,color:#ffffff,stroke:#34495e,stroke-width:2px
 
-    %% Core GRC Modules
-    COMP[Compliance Requirements]:::comp
-    CTRL[Controls]:::control
-    RM[Risk Management]:::risk
+    %% Governance
+    ISMS["Governance and ISMS<br/>Context, Scope and Objectives"]:::governance
 
-    %% Assets and Data
-    subgraph Targets [Targets of Evaluation / Assets]
-        IT[IT Systems]:::asset
-        VEND[Vendors / Third Parties]:::asset
-        AI[AI Components]:::asset
-        PROC[Business Processes]:::asset
-    end
-    
-    DATA[(Data)]:::data
+    %% Requirements and Drivers
+    REQ["Compliance, Regulatory<br/>and Contractual Requirements"]:::requirement
+    OBJ["Business and Security<br/>Objectives"]:::requirement
 
-    %% Core Relationships
-    COMP -->|Linked to demonstrate compliance <br/> with security requirements| CTRL
-    CTRL -->|Mitigates inherent risks <br/> Design & Effectiveness evaluated <br/> for Residual Risk| RM
-    RM -->|Assesses & Evaluates| Targets
-    
-    IT -->|Stores, Processes, Transmits| DATA
-    VEND -->|Stores, Processes, Transmits| DATA
-    AI -->|Stores, Processes, Transmits| DATA
-    PROC -->|Stores, Processes, Transmits| DATA
-
-    %% Transversal Support Modules
-    subgraph SupportModules [GRC Support Modules]
+    %% Evaluation Scope
+    subgraph SCOPE["Evaluation Scope"]
         direction LR
-        ISMS[ISMS ISO 27001 <br/> Deployment]:::support
-        BIA[Business Impact <br/> Analysis - BIA]:::support
-        DASH[Dashboards <br/> & Reports]:::support
+        PROC["Business<br/>Processes"]:::scope
+        ASSET["Information and<br/>Technology Assets"]:::scope
+        THIRD["Vendors and<br/>Third Parties"]:::scope
+        AI["AI Systems and<br/>Components"]:::scope
     end
 
-    %% Support Connections
-    SupportModules -.- RM
-    SupportModules -.- CTRL
-    SupportModules -.- COMP
+    %% Assessment
+    BIA["Business Impact Analysis<br/>Criticality and Impact"]:::risk
+    RISK["Cybersecurity and AI<br/>Risk Assessment"]:::risk
+
+    %% Treatment and Controls
+    TREAT["Risk Treatment"]:::risk
+    CTRL["Control Design<br/>and Implementation"]:::control
+    TEST["Control Effectiveness<br/>Assessment"]:::control
+    RESIDUAL["Residual Risk<br/>Evaluation"]:::risk
+
+    %% Assurance
+    EVIDENCE["Evidence<br/>Management"]:::assurance
+    COMPLIANCE["Compliance<br/>Assessment"]:::assurance
+    REPORTING["Dashboards, Reports<br/>and Audit Support"]:::reporting
+    IMPROVE["Monitoring and<br/>Continual Improvement"]:::governance
+
+    %% Governance Relationships
+    ISMS --> REQ
+    ISMS --> OBJ
+    ISMS --> SCOPE
+
+    %% Scope and Assessment
+    OBJ --> RISK
+    REQ --> RISK
+    SCOPE --> BIA
+    SCOPE --> RISK
+    BIA -->|"Provides criticality<br/>and impact criteria"| RISK
+
+    %% Risk and Control Lifecycle
+    RISK --> TREAT
+    TREAT --> CTRL
+    REQ -->|"Defines expected and<br/>mandatory controls"| CTRL
+    CTRL --> TEST
+    TEST --> RESIDUAL
+
+    %% Evidence and Compliance
+    CTRL -->|"Produces implementation<br/>evidence"| EVIDENCE
+    TEST -->|"Produces assessment<br/>evidence"| EVIDENCE
+    EVIDENCE --> COMPLIANCE
+    REQ --> COMPLIANCE
+
+    %% Reporting and Improvement
+    RESIDUAL --> REPORTING
+    COMPLIANCE --> REPORTING
+    EVIDENCE --> REPORTING
+    REPORTING --> IMPROVE
+    IMPROVE -.->|"Updates governance,<br/>scope and objectives"| ISMS
 ```
 
 ## **Asset Management**
@@ -78,17 +106,30 @@ Understanding the organization’s assets like data, IT systems, AI components, 
 ### **Data Asset**
 
 ```mermaid
-graph TD;
-    A[Data Asset]--stored, processed, transmitted through-->B[IT System];
-    A[Data Asset]--managed in-->C[Business Process];
-    A[Data Asset]--accessed by-->D[Suppliers];
+flowchart TD
+    %% Style definitions
+    classDef data fill:#8e44ad,color:#ffffff,stroke:#6c3483,stroke-width:2px
+    classDef system fill:#2980b9,color:#ffffff,stroke:#1f618d,stroke-width:2px
+    classDef process fill:#27ae60,color:#ffffff,stroke:#1e8449,stroke-width:2px
+    classDef supplier fill:#f39c12,color:#ffffff,stroke:#b9770e,stroke-width:2px
+
+    %% Nodes
+    DATA["Data Asset"]:::data
+    SYSTEM["IT System"]:::system
+    PROCESS["Business Process"]:::process
+    SUPPLIER["Suppliers / Third Parties"]:::supplier
+
+    %% Relationships
+    DATA -->|"Stored, processed, or transmitted through"| SYSTEM
+    DATA -->|"Managed within"| PROCESS
+    DATA -->|"Accessed or processed by"| SUPPLIER
+
 ```
+The Data Asset Catalog helps organizations understand what data they hold, why it is important, where it is used, and who or what has access to it. This visibility is essential for protecting critical information and evaluating the potential impact of a confidentiality, integrity, or availability incident.
 
-The primary catalog is the Data Asset Catalog, because ultimately, data is what we aim to protect. If data is exposed or compromised, it can have a significant negative impact on the organization. This module is designed to register the company’s critical data assets.
+Use this module to register and maintain the organization’s critical data assets. Each record can include the asset name, description, data classification, owner, associated IT systems and business processes, third parties with access, and AI components that store, process, transmit, or use the data.
 
-Some attributes captured here include: asset name, data classification, asset owner, IT systems, processes where data is managed, vendors with access to that data and AI components where data is accessed/used.
-
-Record your data assets in as much detail as possible. This information will allow us to accurately assess potential impacts on the organization and define the most appropriate risk management strategies for these assets.
+Provide enough detail to clearly identify each asset’s business purpose, criticality, dependencies, and data flows. This information provides the foundation for business impact analysis, risk assessment, security control selection, compliance evaluation, and risk treatment.
 
 <img width="1325" height="487" alt="image" src="https://github.com/user-attachments/assets/49a4a29f-2eb6-49c1-8ae8-534d083fbcc4" />
 
