@@ -135,13 +135,14 @@ Provide enough detail to clearly identify each asset’s business purpose, criti
 
 ### **IT System**
 
-This is a high-level catalog of the organization’s critical platforms. It is not intended to be a CMDB (Configuration Management Database), but rather a registry of system platforms that support critical processes or store, transmit, or process critical data.
-Each IT system is mapped with the IT Components that support or make up the IT systems, in the IT component some attributes are requiered like IP, URL, TCP ports open, IT admin.
-AI components (mcp servers, AI hosts, LLM models, AI apps) are registered as part of IT Systems, with this approach AI components are clearly identified/invetoired so risk assessment can be donde over these IT systems considering alls these components in the assessment.
 
-The **IT Inventory** module in **grc4ciso** serves as a high-level risk registry of critical platforms rather than a granular CMDB. It focuses exclusively on system platforms that support critical business processes or handle sensitive data. 
+The IT Inventory module in GRC4CISO provides a high-level catalog of the organization’s critical technology platforms. It identifies the IT systems that support critical business processes or store, process, or transmit critical data.
 
-To ensure comprehensive threat visibility, **IT Systems** are mapped to their underlying technical makeup. Crucially, **AI Components** (such as MCP servers, LLMs, and AI apps) are registered directly as parts of these IT Systems. This guarantees that when a Risk Assessment is performed on a platform, all traditional and AI-specific attack surfaces are explicitly identified and evaluated.
+Each IT System can be mapped to the IT Components that make up or support the platform, including servers, databases, applications, network devices, endpoints, cloud services, and other infrastructure elements. Relevant technical and administrative information, such as IP addresses, URLs, open TCP ports, hosting details, and responsible IT administrators, can be documented for each component.
+
+AI components, including AI applications, AI agents, AI hosts, large language models (LLMs), and Model Context Protocol (MCP) servers, can also be inventoried and associated with the IT systems in which they operate or that they support. These components retain their own technical, security, and governance attributes while remaining connected to the broader technology environment.
+
+This integrated approach provides visibility into both traditional and AI-specific components. When an IT system is assessed, its supporting components, dependencies, integrations, data interactions, and attack surfaces can be considered within the assessment scope. This enables the organization to identify relevant threats and vulnerabilities, evaluate potential impacts, and define appropriate controls and risk treatment measures.
 
 ```mermaid
 flowchart TD
@@ -194,16 +195,18 @@ flowchart TD
     CTRL -->|Designed & Implemented <br/> to mitigate platform risks| RM
 ```
 
+<img width="2778" height="888" alt="image" src="https://github.com/user-attachments/assets/556be824-5e09-429a-8b0f-2bd7642aaf34" />
+
 
 ### **Business Process**
 
-This is a high-level catalog of the processes where critical data is managed. Cybersecurity should be addressed not only from a technical systems perspective, but also by considering the processes in which data is handled.
-
+The Business Process Catalog provides a high-level inventory of the processes that manage, use, or depend on critical data. This helps the organization evaluate cybersecurity risks beyond the technical environment by considering how data is collected, accessed, processed, shared, retained, and protected within business operations.
 
 ### **Vendors**
 
-Vendors play a vital role in your organization’s operations, but they also introduce significant security and compliance risks. Many suppliers have access to your systems, sensitive data, or processing environments, which makes proper oversight essential. To safeguard your organization, it is crucial to identify suppliers with access to critical data or systems. This enables you to perform a comprehensive vendor risk assessment as part of your overall risk management process. Effective supplier risk management helps mitigate potential threats, ensures regulatory compliance, and strengthens your organization’s data protection posture.
+The Vendor Catalog identifies the suppliers and third parties that support critical business processes, access sensitive or critical data, connect to IT systems, or provide technology and AI-related services.
 
+By documenting each vendor’s services, access privileges, data interactions, system connections, and business dependencies, the organization can establish the appropriate scope for third-party risk assessments. This information supports the identification of cybersecurity, privacy, compliance, operational, and concentration risks, as well as the definition and monitoring of appropriate security controls and risk treatment measures.
 
 ## **Risk Management**
 
