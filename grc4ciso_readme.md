@@ -210,7 +210,7 @@ By documenting each vendor’s services, access privileges, data interactions, s
 
 ## **Risk Management**
 
-## Organizational Context and Risk Metrics
+### Organizational Context and Risk Metrics
 
 Before assessing risks associated with IT systems, business processes, or third-party vendors, it is essential to understand the organization's context and define the metrics that will be used to evaluate risk.
 
