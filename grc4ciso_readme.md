@@ -210,7 +210,7 @@ By documenting each vendor’s services, access privileges, data interactions, s
 
 ## **Risk Management**
 
-### Organizational Context and Risk Metrics
+### **Organizational Context and Risk Metrics**
 
 Before assessing risks associated with IT systems, business processes, or third-party vendors, it is essential to understand the organization's context and define the metrics that will be used to evaluate risk.
 
@@ -272,7 +272,7 @@ flowchart TD
     B5 --> C
     B6 --> C
 
-    C --> D1["IT Systems"]
+    C --> D1["IT Systems & AI Components"]
     C --> D2["Business Processes"]
     C --> D3["Third-Party Vendors"]
 
@@ -359,62 +359,22 @@ flowchart TD
 ```
 
 
-    
+## **Risk Register**
 
-You can evaluate risks using CVSS (Common Vulnerability Score System) calculator integrated in the risk module.
+Once the organizational context has been established, the organization should identify, analyze, and evaluate the risk factors that could affect its business objectives, critical processes, or the confidentiality, integrity, and availability of information. These risk factors may be associated with IT systems, AI components, business processes, vendors, or other elements within the assessment scope. Inadequate or ineffective controls over any of these elements could compromise critical information, disrupt business operations, or contribute to the materialization of a risk.
 
-<img width="685" height="415" alt="337298446-21335b85-f667-45c4-9d60-c39e65bbee7e" src="https://github.com/user-attachments/assets/d6feeee2-7fd0-43ea-b76c-f5ae2117bdad" />
+For risk factors associated with IT systems and AI components, GRC4CISO provides integrated CVSS 3.0 and 4.0 calculators based on the Common Vulnerability Scoring System. The platform also includes CVE management capabilities, allowing technical vulnerabilities and related risk factors to be documented, analyzed, and incorporated into the risk assessment process.
 
-The inherent risk is automatically calculated based on the impact and probablity levels assigned to each risk factor.
+Inherent risk is calculated automatically based on the impact and likelihood levels assigned to each risk factor. This represents the level of risk before considering the design, implementation, or effectiveness of the controls established to treat it.
 
-<img width="919" height="241" alt="337302401-8a4893a7-2adc-4088-bde5-08c57e4a31d0" src="https://github.com/user-attachments/assets/152b6b74-540d-409d-9476-668cc666641b" />
+Residual risk is also calculated automatically based on the design and effectiveness assessments of the controls assigned to treat the identified risk factors. This enables the organization to evaluate the level of risk that remains after the relevant controls have been implemented and assessed.
 
-Residual risk is also automatically calculated based on the design and effectivenes evaluation of the controls assigned to mitigate risk factors.
+For AI risk assessments, GRC4CISO provides dedicated functionality to document AI system architectures and their components, including AI agents, AI hosts, large language models (LLMs), Model Context Protocol (MCP) servers, and integrations.
 
-<img width="926" height="380" alt="337302598-d05a19f6-7998-4794-8582-e458a64bc763" src="https://github.com/user-attachments/assets/cffa0772-85db-4fab-b2dd-e1345c8de5f6" />
+The platform also includes an MCP security scanner that discovers the tools, resources, and prompts exposed by an MCP server. These capabilities are evaluated against the security rules configured in the platform to identify potential findings and assign risk scores. The AI system and its associated components and findings can then be mapped to the Risk Register, allowing traditional cybersecurity and AI-specific risks to be assessed through a unified risk management process.
 
-<img width="824" height="391" alt="337302783-cae1f939-2969-46ad-8d5e-c217113ff3d3" src="https://github.com/user-attachments/assets/3fd9992b-c9ba-4df1-9a28-b56b35e09ce6" />
+The attack surfaced considered include: Data & Prompts, Model & Logic, Apps, APIs & Users, use cases, data sources so these escenarios should be considered to assess the risks related to AI.
 
-### **Threat Scenario**
-
-Identify and characterize threat sources of concern, including capability, intent, and targeting characteristics for adversarial threats and range of effects for non-adversarial threats. Organizations identify threat sources of concern and determine the characteristics associated with those threat sources. For adversarial threat sources, assess the capabilities, intentions, and targeting associated with the threat sources. For non-adversarial threat sources, assess the potential range of effects from the threat sources.
-
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/72296e72-6a7e-4773-9368-8e7ad9af09d2">
-
-### **CVE Search**
-This feature integrates with www.cve-search.org to retrieve CVE data for risk assessment. This feature helps organizations identify, evaluate, and manage vulnerabilities affecting their assets.
-
-<img width="760" height="226" alt="418381411-8595f3bc-d6e7-47c3-b11a-dfeb5360e662" src="https://github.com/user-attachments/assets/bed1f2fb-4045-49eb-932e-20bef654e68c" />
-
-<img width="1036" height="307" alt="418381468-b8e7c1aa-52f4-4845-83fa-84d09675b6cd" src="https://github.com/user-attachments/assets/210fbae4-8e43-4bb5-8f9b-7730bbfa6eb3" />
-
-
-## **AI**
-
-MCP inventory
-      ↓
-Connect to MCP server
-      ↓
-Discover capabilities
-      ↓
-Discover tools
-      ↓
-Analyze tool descriptions
-      ↓
-Check authentication
-      ↓
-Basic OAuth checks
-      ↓
-Permission classification
-      ↓
-Tool poisoning rules
-      ↓
-Findings
-      ↓
-Risk score
-
-The attack surfaced considered include: Data & Prompts, Model & Logic, Apps, APIs & Users, so these escenarios should be considered to assess the risks related to AI.
-The risk model is more focused on a MCP architecture, where basically the components that should be evaluated are the MCP server/client, APIs, data sources, business logic, LLM models.
 
 ```mermaid
 flowchart LR
@@ -428,110 +388,22 @@ flowchart LR
     linkStyle 0,1 stroke:#3cb9d4,stroke-width:3px;
 ```
 
-Asset catalogs are added to register MCP servers, LLM models, APIs, and LLM Clients, that support AI systems.
 
-mcp.server
-│
-├── IDENTIFICATION
-│   ├── name
-│   ├── description
-│   └── active
-│
-├── CONNECTION
-│   ├── transport
-│   └── endpoint_url
-│
-├── BUSINESS CONTEXT
-│   ├── owner_id
-│   └── environment
-│
-├── DISCOVERED
-│   ├── protocol_version
-│   ├── auth_type
-│   ├── server_status
-│   ├── tools_count
-│   ├── resources_count
-│   └── prompts_count
-│
-├── SECURITY
-│   ├── risk_score
-│   ├── risk_level
-│   ├── critical_findings_count
-│   ├── high_findings_count
-│   ├── medium_findings_count
-│   └── low_findings_count
-│
-└── SCANNING
-    ├── last_scan_date
-    ├── last_successful_scan_date
-    ├── scan_frequency
-    └── next_scan_date
-
-Other important aspect is to include the AI use cases and data sources, since and important aspect to evaluate is the logic of the systems, since sometimes vulnerabilities are associated to the logic of the system than technical vulnerabilities.
-
-AI Agent = Brain / Worker
-MCP      = Standard connector
-API      = System interface
-System   = Where the actual business operation occurs
-
-```mermaid
-
-flowchart LR
-    A["AI Agent<br/>Reasoning + Planning"]
-    B["MCP Client"]
-    C["MCP Server"]
-    D["Application API"]
-    E["Business System"]
-
-    A -->|"I need to create a vendor"| B
-    B -->|"MCP tool call"| C
-    C -->|"API request"| D
-    D --> E
-```
-
-
- GOVERNANCE LAYER        │
-│                             │
-│ Identity                    │
-│ Authorization               │
-│ Policy                      │
-│ Human approval              │
-│ Audit                       │
-│ Risk controls 
-
-MCP scanner:
-
-Valida la URL.
-Bloquea destinos privados para reducir riesgo de SSRF.
-Inicializa la sesión MCP.
-Obtiene tools, resources y prompts.
-Clasifica las tools.
-Busca instrucciones sospechosas.
-Calcula un score preliminar.
-Devuelve un diccionario para Odoo.
 
 MCP scanner
-
-
 <img width="945" height="464" alt="image" src="https://github.com/user-attachments/assets/54fb0264-55bc-4fc1-b1fe-4f2d02d02dc0" />
 
 MCP tools
-
 <img width="1046" height="518" alt="image" src="https://github.com/user-attachments/assets/f30ed490-906e-4aff-9cb4-1e8858e8d8f3" />
 
 MCP Resources
-
 <img width="930" height="546" alt="image" src="https://github.com/user-attachments/assets/477b76fb-2ff1-48da-abe9-9fa1fae6851f" />
 
 MCP prompts
-
 <img width="1026" height="494" alt="image" src="https://github.com/user-attachments/assets/d7336753-d50b-47cb-af1b-266f4dc3235e" />
 
 MCP Findings
-
 <img width="1190" height="116" alt="image" src="https://github.com/user-attachments/assets/2c701d95-99ab-4f73-91ed-b1aabf616ea7" />
-
-
 
 ## **Control**
 
