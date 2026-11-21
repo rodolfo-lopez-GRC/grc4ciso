@@ -45,6 +45,7 @@ flowchart TD
         ASSET["Information and<br/>Technology Assets"]:::scope
         THIRD["Vendors and<br/>Third Parties"]:::scope
         AI["AI Systems and<br/>Components"]:::scope
+        PL["physical <br/>Locations"]:::scope
     end
 
     %% Assessment
@@ -111,17 +112,20 @@ flowchart TD
     classDef system fill:#2980b9,color:#ffffff,stroke:#1f618d,stroke-width:2px
     classDef process fill:#27ae60,color:#ffffff,stroke:#1e8449,stroke-width:2px
     classDef supplier fill:#f39c12,color:#ffffff,stroke:#b9770e,stroke-width:2px
+    classDef location fill:#c0392b,color:#ffffff,stroke:#922b21,stroke-width:2px
 
     %% Nodes
     DATA["Data Asset"]:::data
     SYSTEM["IT System"]:::system
     PROCESS["Business Process"]:::process
     SUPPLIER["Suppliers / Third Parties"]:::supplier
+    LOCATION["Physical Locations"]:::location
 
     %% Relationships
     DATA -->|"Stored, processed, or transmitted through"| SYSTEM
     DATA -->|"Managed within"| PROCESS
     DATA -->|"Accessed or processed by"| SUPPLIER
+    DATA -->|"Stored or processed at"| LOCATION
 
 ```
 The Data Asset Catalog helps organizations understand what data they hold, why it is important, where it is used, and who or what has access to it. This visibility is essential for protecting critical information and evaluating the potential impact of a confidentiality, integrity, or availability incident.
