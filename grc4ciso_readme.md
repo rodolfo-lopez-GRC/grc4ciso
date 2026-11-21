@@ -9,8 +9,7 @@ It helps organizations establish and operate an Information Security Management 
 Core Capabilities:
 
 - Asset management
-- Cybersecurity risk management
-- AI risk management
+- Cybersecurity and AI risk management
 - Security control management
 - ISO/IEC 27001:2022 ISMS management
 - Compliance tracking and reporting
