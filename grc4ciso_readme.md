@@ -49,7 +49,6 @@ flowchart TD
     end
 
     %% Assessment
-    BIA["Business Impact Analysis<br/>Criticality and Impact"]:::risk
     RISK["Cybersecurity and AI<br/>Risk Assessment"]:::risk
 
     %% Treatment and Controls
@@ -72,9 +71,7 @@ flowchart TD
     %% Scope and Assessment
     OBJ --> RISK
     REQ --> RISK
-    SCOPE --> BIA
     SCOPE --> RISK
-    BIA -->|"Provides criticality<br/>and impact criteria"| RISK
 
     %% Risk and Control Lifecycle
     RISK --> TREAT
@@ -208,9 +205,11 @@ The Business Process Catalog provides a high-level inventory of the processes th
 
 ### **Vendors**
 
-The Vendor Catalog identifies the suppliers and third parties that support critical business processes, access sensitive or critical data, connect to IT systems, or provide technology and AI-related services.
+The Vendor Catalog identifies the suppliers and third parties that support critical business processes, access sensitive or critical data, connect to IT systems, or provide technology and AI-related services. By documenting each vendor’s services, access privileges, data interactions, system connections, and business dependencies, the organization can establish the appropriate scope for third-party risk assessments. This information supports the identification of cybersecurity, privacy, compliance, operational, and concentration risks, as well as the definition and monitoring of appropriate security controls and risk treatment measures.
 
-By documenting each vendor’s services, access privileges, data interactions, system connections, and business dependencies, the organization can establish the appropriate scope for third-party risk assessments. This information supports the identification of cybersecurity, privacy, compliance, operational, and concentration risks, as well as the definition and monitoring of appropriate security controls and risk treatment measures.
+### **Physical Locations**
+
+Identifying the physical locations where information is stored, processed, or accessed is essential to effective information security risk management. Physical security should be integrated into the overall risk management process because unauthorized access, theft, fire, flooding, power failures, or damage to equipment can compromise information and undermine logical and technological controls. A comprehensive security approach therefore considers physical, organizational, human, and technological risks together.
 
 ## **Risk Management**
 
