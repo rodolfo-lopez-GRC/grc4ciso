@@ -100,7 +100,7 @@ flowchart TD
 
 Assets that enable the organization to achieve business purposes are identified and managed consistent with their relative importance to organizational objectives and the organization’s risk strategy.
 
-Understanding the organization’s assets like data, IT systems, AI components, vendors, and processes and related cybersecurity risks enables an organization to prioritize its efforts consistent with its risk management strategy and the mission needs.
+Understanding the organization’s assets like data, IT systems, AI components, vendors, physical locations and processes and related cybersecurity risks enables an organization to prioritize its efforts consistent with its risk management strategy and the mission needs.
 
 ### **Data Asset**
 
@@ -130,7 +130,8 @@ Use this module to register and maintain the organization’s critical data asse
 
 Provide enough detail to clearly identify each asset’s business purpose, criticality, dependencies, and data flows. This information provides the foundation for business impact analysis, risk assessment, security control selection, compliance evaluation, and risk treatment.
 
-<img width="1325" height="487" alt="image" src="https://github.com/user-attachments/assets/49a4a29f-2eb6-49c1-8ae8-534d083fbcc4" />
+<img width="1336" height="347" alt="image" src="https://github.com/user-attachments/assets/6d032b66-3429-4690-8fe0-537a39d2f45a" />
+
 
 ### **IT System**
 
