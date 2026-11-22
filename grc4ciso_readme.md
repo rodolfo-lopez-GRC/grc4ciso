@@ -18,7 +18,7 @@ Core Capabilities:
 
 GRC4CISO follows a top-down governance model that translates business objectives and regulatory, contractual, and organizational requirements into risk assessments, control activities, measurable evidence, and continual improvement.
 
-The diagram illustrates how governance requirements define the evaluation scope, including business processes, information assets, IT systems, third parties, and AI components. Risks affecting these elements are identified and assessed, appropriate treatments and controls are selected, and control effectiveness is evaluated to determine residual risk. Evidence generated throughout this process supports compliance assessments, reporting, audits, and informed decision-making.
+The diagram illustrates how governance requirements define the evaluation scope, including business processes, information assets, IT systems, third parties, AI components and physical locations. Risks affecting these elements are identified and assessed, appropriate treatments and controls are selected, and control effectiveness is evaluated to determine residual risk. Evidence generated throughout this process supports compliance assessments, reporting, audits, and informed decision-making.
 
 ```mermaid
 flowchart TD
