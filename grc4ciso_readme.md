@@ -96,9 +96,9 @@ flowchart TD
 
 ## **Asset Management**
 
-Assets that enable the organization to achieve business purposes are identified and managed consistent with their relative importance to organizational objectives and the organization’s risk strategy.
+Assets that enable the organization to achieve its business goals are identified and managed in accordance with their relative importance to organizational objectives and risk strategy.
 
-Understanding the organization’s assets like data, IT systems, AI components, vendors, physical locations and processes and related cybersecurity risks enables an organization to prioritize its efforts consistent with its risk management strategy and the mission needs.
+Understanding the organization’s assets—such as data, IT systems, AI components, vendors, physical locations, and business processes—along with their associated cybersecurity risks, enables leadership to prioritize resources in alignment with its risk management strategy and mission needs.
 
 ### **Data Asset**
 
