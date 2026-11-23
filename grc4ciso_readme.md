@@ -215,7 +215,7 @@ Identifying the physical locations where information is stored, processed, or ac
 
 ### **Organizational Context and Risk Metrics**
 
-Before assessing risks associated with IT systems, business processes, or third-party vendors, it is essential to understand the organization's context and define the metrics that will be used to evaluate risk.
+Before assessing risks associated with IT systems, business processes, AI components, physical locations or third-party vendors, it is essential to understand the organization's context and define the metrics that will be used to evaluate risk.
 
 The organizational context helps determine the potential business impact of events such as:
 
