@@ -196,7 +196,7 @@ flowchart TD
     CTRL -->|Designed & Implemented <br/> to mitigate platform risks| RM
 ```
 
-<img width="2778" height="888" alt="image" src="https://github.com/user-attachments/assets/556be824-5e09-429a-8b0f-2bd7642aaf34" />
+<img width="2758" height="822" alt="image" src="https://github.com/user-attachments/assets/3eefd252-025d-4f60-b59c-134e314026ad" />
 
 
 ### **Business Process**
