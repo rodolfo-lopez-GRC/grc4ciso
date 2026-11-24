@@ -359,7 +359,7 @@ flowchart TD
 ```
 
 
-## **Risk Register**
+### **Risk Register**
 
 Once the organizational context has been established, the organization should identify, analyze, and evaluate the risk factors that could affect its business objectives, critical processes, or the confidentiality, integrity, and availability of information. These risk factors may be associated with IT systems, AI components, business processes, vendors, or other elements within the assessment scope. Inadequate or ineffective controls over any of these elements could compromise critical information, disrupt business operations, or contribute to the materialization of a risk.
 
@@ -381,10 +381,25 @@ The platform also includes an MCP security scanner that discovers the tools, res
 
 <img width="2782" height="1266" alt="image" src="https://github.com/user-attachments/assets/f396fc3e-99a8-4ffc-90fe-1a74863fc539" />
 
-## **Control**
+### **Control**
 
-Once you identify and evaluate risks, you should design the controls to mitigate such risks, so in the control module you can design, evaluate, and approve controls.
-Each control has a flow (draft, designed, implemented, approved), so the controls can be audited and evaluated to ensure they are effective to mitigate risks.
+Once risks have been identified and evaluated, organizations can design controls to mitigate them. The Control Management module enables users to design, assess, implement, review, and approve controls through a structured workflow.
+
+Each control follows a defined lifecycle:
+Design → In Progress → Implemented → Approved → Obsolete
+
+This workflow provides traceability throughout the control lifecycle and supports periodic audits and evaluations to verify whether controls are properly designed, implemented, and effective in mitigating their associated risks.
+
+The module allows organizations to:
+- Document control objectives and activities.
+- Define and maintain the evidence required to demonstrate control operation.
+- Evaluate control design and operating effectiveness.
+- Assign relevant ISO/IEC 27001 control attributes.
+- Link controls to identified risks.
+- Map controls to applicable compliance requirements.
+- Demonstrate compliance through implemented controls and supporting evidence.
+- Maintain an auditable history of control reviews, approvals, and status changes.
+- By connecting risks, controls, compliance requirements, and evidence, GRC4CISO helps organizations maintain end-to-end traceability and demonstrate how their control environment supports both risk treatment and compliance objectives.
 
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/2699c8f6-306c-4a0e-aed5-586a4be64ccd">
 
