@@ -379,38 +379,7 @@ For AI risk assessments, GRC4CISO provides dedicated functionality to document A
 
 The platform also includes an MCP security scanner that discovers the tools, resources, and prompts exposed by an MCP server. These capabilities are evaluated against the security rules configured in the platform to identify potential findings and assign risk scores. The AI system and its associated components and findings can then be mapped to the Risk Register, allowing traditional cybersecurity and AI-specific risks to be assessed through a unified risk management process.
 
-<img width="2728" height="1006" alt="image" src="https://github.com/user-attachments/assets/d51ee520-ccf0-4512-bd72-d98472bf75df" />
-
-The attack surfaced considered include: Data & Prompts, Model & Logic, Apps, APIs & Users, use cases, data sources so these escenarios should be considered to assess the risks related to AI.
-
-```mermaid
-flowchart LR
-    A["① <b>Data & Prompts</b><br/><br/>🟡 INPUTS<br/><br/>Training data<br/>Retrieval content<br/>Prompts<br/>Evaluation sets"]
-    B["② <b>Model & Logic</b><br/><br/>🟡 MODEL LAYER<br/><br/>Weights & fine-tunes<br/>Policies<br/>Agents<br/>Orchestration"]
-    C["③ <b>Apps, APIs & Users</b><br/><br/>🟡 OPERATING ENVIRONMENT<br/><br/>Apps & APIs<br/>Users & plugins<br/>Storage<br/>Logs"]
-    A -->|"What the model<br/>sees & learns"| B
-    B -->|"How the system<br/>reasons & acts"| C
-    classDef layer fill:#123f48,stroke:#245762,color:#ffffff,stroke-width:2px;
-    class A,B,C layer;
-    linkStyle 0,1 stroke:#3cb9d4,stroke-width:3px;
-```
-
-
-
-MCP scanner
-<img width="945" height="464" alt="image" src="https://github.com/user-attachments/assets/54fb0264-55bc-4fc1-b1fe-4f2d02d02dc0" />
-
-MCP tools
-<img width="1046" height="518" alt="image" src="https://github.com/user-attachments/assets/f30ed490-906e-4aff-9cb4-1e8858e8d8f3" />
-
-MCP Resources
-<img width="930" height="546" alt="image" src="https://github.com/user-attachments/assets/477b76fb-2ff1-48da-abe9-9fa1fae6851f" />
-
-MCP prompts
-<img width="1026" height="494" alt="image" src="https://github.com/user-attachments/assets/d7336753-d50b-47cb-af1b-266f4dc3235e" />
-
-MCP Findings
-<img width="1190" height="116" alt="image" src="https://github.com/user-attachments/assets/2c701d95-99ab-4f73-91ed-b1aabf616ea7" />
+<img width="2782" height="1266" alt="image" src="https://github.com/user-attachments/assets/f396fc3e-99a8-4ffc-90fe-1a74863fc539" />
 
 ## **Control**
 
