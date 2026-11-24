@@ -381,7 +381,7 @@ The platform also includes an MCP security scanner that discovers the tools, res
 
 <img width="2782" height="1266" alt="image" src="https://github.com/user-attachments/assets/f396fc3e-99a8-4ffc-90fe-1a74863fc539" />
 
-### **Control**
+### **Control Design**
 
 Once risks have been identified and evaluated, organizations can design controls to mitigate them. The Control Management module enables users to design, assess, implement, review, and approve controls through a structured workflow.
 
