@@ -131,11 +131,9 @@ Use this module to register and maintain the organization’s critical data asse
 
 Provide enough detail to clearly identify each asset’s business purpose, criticality, dependencies, and data flows. This information provides the foundation for business impact analysis, risk assessment, security control selection, compliance evaluation, and risk treatment.
 
-<img width="1336" height="347" alt="image" src="https://github.com/user-attachments/assets/6d032b66-3429-4690-8fe0-537a39d2f45a" />
-
+<img width="2762" height="668" alt="image" src="https://github.com/user-attachments/assets/07012af2-b1dd-457b-b018-83ac8234b416" />
 
 ### **IT System**
-
 
 The IT Inventory module in GRC4CISO provides a high-level catalog of the organization’s critical technology platforms. It identifies the IT systems that support critical business processes or store, process, or transmit critical data.
 
@@ -196,8 +194,7 @@ flowchart TD
     CTRL -->|Designed & Implemented <br/> to mitigate platform risks| RM
 ```
 
-<img width="2758" height="822" alt="image" src="https://github.com/user-attachments/assets/3eefd252-025d-4f60-b59c-134e314026ad" />
-
+<img width="2764" height="750" alt="image" src="https://github.com/user-attachments/assets/5253a318-b529-4a23-b230-c5579bb6d080" />
 
 ### **Business Process**
 
@@ -366,18 +363,25 @@ flowchart TD
 
 Once the organizational context has been established, the organization should identify, analyze, and evaluate the risk factors that could affect its business objectives, critical processes, or the confidentiality, integrity, and availability of information. These risk factors may be associated with IT systems, AI components, business processes, vendors, or other elements within the assessment scope. Inadequate or ineffective controls over any of these elements could compromise critical information, disrupt business operations, or contribute to the materialization of a risk.
 
+<img width="2762" height="1148" alt="image" src="https://github.com/user-attachments/assets/1832ced9-ac0b-421a-8566-8308a361671a" />
+
 For risk factors associated with IT systems and AI components, GRC4CISO provides integrated CVSS 3.0 and 4.0 calculators based on the Common Vulnerability Scoring System. The platform also includes CVE management capabilities, allowing technical vulnerabilities and related risk factors to be documented, analyzed, and incorporated into the risk assessment process.
+
+<img width="2412" height="1516" alt="image" src="https://github.com/user-attachments/assets/0bea2d22-4b53-4935-a548-63f9d4c3accd" />
 
 Inherent risk is calculated automatically based on the impact and likelihood levels assigned to each risk factor. This represents the level of risk before considering the design, implementation, or effectiveness of the controls established to treat it.
 
 Residual risk is also calculated automatically based on the design and effectiveness assessments of the controls assigned to treat the identified risk factors. This enables the organization to evaluate the level of risk that remains after the relevant controls have been implemented and assessed.
 
+<img width="2768" height="1124" alt="image" src="https://github.com/user-attachments/assets/56053e14-b95a-49f1-9aa0-7e332548e10f" />
+
 For AI risk assessments, GRC4CISO provides dedicated functionality to document AI system architectures and their components, including AI agents, AI hosts, large language models (LLMs), Model Context Protocol (MCP) servers, and integrations.
 
 The platform also includes an MCP security scanner that discovers the tools, resources, and prompts exposed by an MCP server. These capabilities are evaluated against the security rules configured in the platform to identify potential findings and assign risk scores. The AI system and its associated components and findings can then be mapped to the Risk Register, allowing traditional cybersecurity and AI-specific risks to be assessed through a unified risk management process.
 
-The attack surfaced considered include: Data & Prompts, Model & Logic, Apps, APIs & Users, use cases, data sources so these escenarios should be considered to assess the risks related to AI.
+<img width="2728" height="1006" alt="image" src="https://github.com/user-attachments/assets/d51ee520-ccf0-4512-bd72-d98472bf75df" />
 
+The attack surfaced considered include: Data & Prompts, Model & Logic, Apps, APIs & Users, use cases, data sources so these escenarios should be considered to assess the risks related to AI.
 
 ```mermaid
 flowchart LR
