@@ -386,6 +386,185 @@ The module allows organizations to:
 
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/2699c8f6-306c-4a0e-aed5-586a4be64ccd">
 
+### **Risk Register & Control Design**
+
+
+```mermaid
+
+flowchart LR
+    %% Styling
+    classDef scope fill:#34495e,color:#ffffff,stroke:#2c3e50,stroke-width:2px
+    classDef technology fill:#27ae60,color:#ffffff,stroke:#1e8449,stroke-width:2px
+    classDef vulnerability fill:#f39c12,color:#ffffff,stroke:#d68910,stroke-width:2px
+    classDef attribute fill:#8e44ad,color:#ffffff,stroke:#6c3483,stroke-width:2px
+    classDef strategic fill:#d35400,color:#ffffff,stroke:#a04000,stroke-width:2px
+    classDef lifecycle fill:#ecf0f1,color:#2c3e50,stroke:#7f8c8d,stroke-width:2px
+    classDef evaluation fill:#16a085,color:#ffffff,stroke:#117864,stroke-width:2px
+    classDef compliance fill:#7d3c98,color:#ffffff,stroke:#633974,stroke-width:2px
+    classDef residual fill:#c0392b,color:#ffffff,stroke:#922b21,stroke-width:3px
+
+    %% Highlighted primary modules
+    classDef riskModule fill:#e74c3c,color:#ffffff,stroke:#641e16,stroke-width:8px,font-size:22px,font-weight:bold
+    classDef controlModule fill:#2980b9,color:#ffffff,stroke:#0b3c5d,stroke-width:8px,font-size:22px,font-weight:bold
+
+    %% Risk Assessment Scope
+    subgraph RiskScope [Risk Assessment Scope]
+        direction TB
+        ITSYS[IT System]:::technology
+        AISYS[AI System]:::technology
+        PROCESS::scope
+        LOCATION[Physical Location]:::scope
+        VENDOR::scope
+    end
+
+    %% Technology Risk Enrichment
+    subgraph TechAssessment [Technology Risk Enrichment]
+        direction TB
+        COMPONENTS[Evaluated Technology Components]:::technology
+        CVE[Associated CVE Records]:::vulnerability
+        CVSS[CVSS 3.0 and 4.0 Calculators]:::vulnerability
+
+        COMPONENTS -->|May have| CVE
+        CVE -->|Scored with| CVSS
+    end
+
+    %% Risk Register
+    RR([Risk Register]):::riskModule
+
+    ITSYS -->|Identified, assessed and evaluated against| RR
+    AISYS -->|Identified, assessed and evaluated against| RR
+    PROCESS -->|Identified, assessed and evaluated against| RR
+    LOCATION -->|Identified, assessed and evaluated against| RR
+    VENDOR -->|Identified, assessed and evaluated against| RR
+
+    ITSYS -->|Contains| COMPONENTS
+    AISYS -->|Contains| COMPONENTS
+    CVE -->|Provides vulnerability context| RR
+    CVSS -->|Improves risk evaluation| RR
+
+    %% Risk Register Attributes
+    subgraph RiskEvaluation [Risk Evaluation and Attributes]
+        direction TB
+        METRICS[Risk Metrics]:::attribute
+        THREAT[Threat Model]:::attribute
+        OWNER[Risk Owner]:::attribute
+        QUANT[Risk Quantification]:::attribute
+    end
+
+    METRICS -->|Defines evaluation criteria| RR
+    THREAT -->|Provides threat context| RR
+    OWNER -->|Is accountable for| RR
+    QUANT -->|Estimates risk exposure| RR
+
+    %% Strategic Risk
+    STRATEGIC[Strategic Risk]:::strategic
+    RR -->|May affect if materialized| STRATEGIC
+
+    %% Risk Register Lifecycle
+    subgraph RiskLifecycle [Risk Register Lifecycle]
+        direction LR
+        RR_DRAFT::lifecycle
+        RR_REVIEW[In Review]:::lifecycle
+        RR_APPROVED::lifecycle
+        RR_OBSOLETE::lifecycle
+
+        RR_DRAFT --> RR_REVIEW
+        RR_REVIEW --> RR_APPROVED
+        RR_APPROVED --> RR_OBSOLETE
+    end
+
+    RR -->|Follows lifecycle| RR_DRAFT
+
+    %% Control Design
+    CD([Control Design]):::controlModule
+    RR -->|Is treated by| CD
+
+    %% Control Design Documentation
+    subgraph ControlDocumentation [Control Design Documentation]
+        direction TB
+        CD_TITLE::attribute
+        CD_CONTROL::attribute
+        CD_OWNER[Responsible Person]:::attribute
+        CD_PURPOSE::attribute
+        CD_ACTIVITIES[Control Activities]:::attribute
+        CD_EVIDENCE[Control Evidence]:::attribute
+    end
+
+    CD_TITLE -->|Describes| CD
+    CD_CONTROL -->|Defines| CD
+    CD_OWNER -->|Is accountable for| CD
+    CD_PURPOSE -->|Explains objective| CD
+    CD_ACTIVITIES -->|Documents execution| CD
+    CD_EVIDENCE -->|Supports evaluation| CD
+
+    %% Control and Compliance Coverage
+    subgraph ControlCoverage [Control and Compliance Coverage]
+        direction TB
+        ISO_CONTROLS[ISO Controls]:::compliance
+        COMPLIANCE_CONTROLS[Compliance Controls]:::compliance
+        REQUIREMENTS[NIS2, PCI DSS, GDPR, CRA and Other Requirements]:::compliance
+    end
+
+    ISO_CONTROLS -->|Covered by| CD
+    COMPLIANCE_CONTROLS -->|Covered by| CD
+    REQUIREMENTS -->|Mapped through compliance controls| COMPLIANCE_CONTROLS
+
+    %% Control Scope
+    subgraph ControlScope [Control Scope]
+        direction TB
+        CS_SYSTEMS::scope
+        CS_PROCESSES::scope
+        CS_LOCATIONS[Physical Locations]:::scope
+        CS_VENDORS::scope
+    end
+
+    CD -->|Applies to| CS_SYSTEMS
+    CD -->|Applies to| CS_PROCESSES
+    CD -->|Applies to| CS_LOCATIONS
+    CD -->|Applies to| CS_VENDORS
+
+    %% Control Design Lifecycle
+    subgraph ControlLifecycle [Control Design Lifecycle]
+        direction LR
+        CD_DESIGN::lifecycle
+        CD_PROGRESS[In Progress]:::lifecycle
+        CD_IMPLEMENTED::lifecycle
+        CD_APPROVED::lifecycle
+        CD_OBSOLETE::lifecycle
+
+        CD_DESIGN --> CD_PROGRESS
+        CD_PROGRESS --> CD_IMPLEMENTED
+        CD_IMPLEMENTED --> CD_APPROVED
+        CD_APPROVED --> CD_OBSOLETE
+    end
+
+    CD -->|Follows lifecycle| CD_DESIGN
+
+    %% Control Evaluation
+    subgraph ControlEvaluation [Control Evaluation]
+        direction TB
+        DESIGN_EVAL[Design Evaluation]:::evaluation
+        EFFECTIVENESS_EVAL[Effectiveness Evaluation]:::evaluation
+
+        DESIGN_EVAL -->|Design must be adequate| EFFECTIVENESS_EVAL
+    end
+
+    CD_ACTIVITIES -->|Evaluated through| DESIGN_EVAL
+    CD_EVIDENCE -->|Supports| EFFECTIVENESS_EVAL
+    CD -->|Evaluated for design| DESIGN_EVAL
+    CD -->|Evaluated for effectiveness| EFFECTIVENESS_EVAL
+
+    %% Residual Risk Calculation
+    RESIDUAL[Residual Risk]:::residual
+
+    CD_APPROVED -->|Enables residual risk calculation| RESIDUAL
+    DESIGN_EVAL -->|Provides evaluation result| RESIDUAL
+    EFFECTIVENESS_EVAL -->|Provides evaluation result| RESIDUAL
+    METRICS -->|Provides calculation criteria| RESIDUAL
+    RR -->|Provides inherent risk baseline| RESIDUAL
+    RESIDUAL -->|Updates residual exposure| RR
+```
+
 ## **Information Security Management System (ISMS)**
 
 The platform provides you with the 93 ISO 27001:2022 controls already loaded, security attributues, security concepts, categories, so you basically need to complete the statement aplicability to show an Information Security Management System implemented in your organization.
