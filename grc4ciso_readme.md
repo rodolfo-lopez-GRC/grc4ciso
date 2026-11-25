@@ -150,15 +150,13 @@ flowchart TD
     classDef data fill:#8e44ad,color:#fff,stroke:#732d91,stroke-width:2px
     classDef system fill:#27ae60,color:#fff,stroke:#1e8449,stroke-width:2px
     classDef component fill:#ecf0f1,color:#2c3e50,stroke:#7f8c8d,stroke-width:2px,text-align:left
-    classDef aicomponent fill:#d1f2eb,color:#117864,stroke:#1abc9c,stroke-width:2px,text-align:left
-    classDef risk fill:#e74c3c,color:#fff,stroke:#c0392b,stroke-width:2px
     classDef control fill:#2980b9,color:#fff,stroke:#2471a3,stroke-width:2px
 
     %% Business Context Layer
     subgraph Context [Business & Data Context]
         direction LR
         PROC[Critical Business Processes]:::business
-        DATA[(Critical Data <br/> PII / PHI / PCI / IP)]:::data
+        DATA[(Critical Data<br/>PII / PHI / PCI / IP)]:::data
     end
 
     %% Platform Registry Layer
@@ -168,30 +166,15 @@ flowchart TD
 
     %% Technical Components Layer
     subgraph Components [System Makeup / Underlying Components]
-        direction LR
-        ITCOMP["<b>IT Components</b><br/>• IP Address / URL<br/>• Open TCP Ports<br/>• IT Admin Owner"]:::component
-        AICOMP["<b>AI Components</b><br/>• MCP Servers & AI Hosts<br/>• LLM Models<br/>• AI Apps"]:::aicomponent
+        ITCOMP["IT Components<br/>• IP Address / URL<br/>• Open TCP Ports<br/>• IT Admin Owner"]:::component
     end
-
-    %% GRC Governance Layer
-    RM[Risk Management <br/> Platform Risk Assessment]:::risk
-    CTRL[Security Controls <br/> Technical & AI Safeguards]:::control
 
     %% Core Relationships
     ITSYS -->|Supports| PROC
     ITSYS -->|Stores, Processes, Transmits| DATA
 
     %% Component Mapping
-    ITSYS ===>|Made up of| ITCOMP
-    ITSYS ===>|Integrates| AICOMP
-
-    %% Assessment Flow
-    ITSYS -->|Subjected to| RM
-    ITCOMP -.->|Considered in assessment| RM
-    AICOMP -.->|Considered in assessment| RM
-    
-    %% Mitigation
-    CTRL -->|Designed & Implemented <br/> to mitigate platform risks| RM
+    ITSYS ==>|Made up of| ITCOMP
 ```
 
 <img width="2764" height="750" alt="image" src="https://github.com/user-attachments/assets/5253a318-b529-4a23-b230-c5579bb6d080" />
