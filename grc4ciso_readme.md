@@ -582,25 +582,40 @@ The module enables you to map controls to individual compliance requirements and
 <img width="1336" height="573" alt="image" src="https://github.com/user-attachments/assets/ea555274-931a-4fee-8b28-6fcc956ab819" />
 
 
-## **RBAC**
+## **Roles and Privileges**
 
-In this module basically you manage users, roles and privileges. 
-If necessary, you can activate two factor authentication to users.
+## Roles and Privileges
 
-### **grc4ciso Roles**
+GRC4CISO uses Role-Based Access Control (RBAC) to manage what each user can see and do. Administrators assign roles according to the user’s responsibilities. A user may have roles in multiple modules, and their privileges are combined.
 
-R - Read, W - Write, C - Create, u - Unlink
+Most modules use three role levels:
 
-|         | Asset Management | ISMS | Risk Management| Control | Compliance | Settings|
-| --------|-------------|-------|------------|------------|------------|------------|
-| GRC Admin | RWCU | RWCU | RWCU | RWCU | RWCU | RWCU |
-| GRC Consultant |RWCU|RWCU|RWCU|RWCU|RWCU|RWCU|
-| Asset Management|RWCU|R|R|R|R|R|
-| ISMS |R|RWCU|R|R|R|R|
-| Risk Management|R|R|RWCU|R|R|R|
-| Control|R|R|R|RWCU|R|R|
-| Compliance |R|R|R|R|RWCU|R|
-| Guest|R|R|R|R|R|R|
+- **Viewer:** Can view records.
+- **Contributor:** Includes Viewer privileges and can create or update operational records.
+- **Manager:** Includes Contributor privileges and can manage catalogs and configuration records.
+
+### Role Matrix
+
+| Module | Viewer | Contributor | Manager |
+|---|---|---|---|
+| **Asset Management** | View assets and catalogs | Create and update assets and relationships | Manage asset catalogs and classifications |
+| **Risk Management** | View risks and related information | Create and update risks, vulnerabilities, and organizational context | Manage risk catalogs and evaluation levels |
+| **Control** | View controls and evidence | Create, update, and submit controls for review | Manage evaluation criteria and mark controls obsolete |
+| **ISMS** | View ISO controls, applicability statements, RACI, and KPIs | Maintain applicability statements, RACI, and KPIs | Manage ISO controls and ISMS catalogs |
+| **Compliance** | View frameworks and requirements | Update compliance versions and asset links | Manage frameworks, objectives, and requirements |
+| **AI** | View AI inventory and MCP information | Create and update operational AI and MCP records | Manage AI catalogs, use cases, and LLM models |
+
+### Additional Roles
+
+| Role | Privileges |
+|---|---|
+| **Control Approver** | Approves or rejects submitted controls. A user cannot approve a control they created or submitted. |
+| **Executive Dashboard Viewer** | Views dashboards and related Risk, Control, ISMS, and Compliance information. |
+| **GRC Auditor** | Provides broad read-only access to GRC information, excluding the AI module. |
+| **AI Security Administrator** | Manages MCP security rules and has read-only access to other AI records. |
+| **Odoo System Administrator** | Manages users and role assignments. |
+
+> Permissions are cumulative. Assigning multiple roles to a user combines the privileges granted by each role.
 
 ## **Docker Installation**
 
