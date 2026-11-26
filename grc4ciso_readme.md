@@ -608,12 +608,15 @@ Most modules use three role levels:
 | Role | Privileges |
 |---|---|
 | **Control Approver** | Approves or rejects submitted controls. A user cannot approve a control they created or submitted. |
+| **Risk Register Approver** | Approves or rejects submitted risk register records in review. A user cannot approve a record they created or submitted. |
+| **Organizational Context Approver** | Approves or rejects submitted organizational context records in review. A user cannot approve a record they created or submitted. |
 | **Executive Dashboard Viewer** | Views dashboards and related Risk, Control, ISMS, and Compliance information. |
 | **GRC Auditor** | Provides broad read-only access to GRC information, excluding the AI module. |
 | **AI Security Administrator** | Manages MCP security rules and has read-only access to other AI records. |
 | **Odoo System Administrator** | Manages users and role assignments. |
 
 > Permissions are cumulative. Assigning multiple roles to a user combines the privileges granted by each role.
+> Control Approver, Risk Register Approver, and Organizational Context Approver grant approval-only access to submitted records in review. Creators and submitters cannot approve their own records, and the approver and date are recorded automatically. Contributors and Managers must be granted approval roles separately.
 
 ## Docker deployment
 
