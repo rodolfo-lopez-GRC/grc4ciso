@@ -386,7 +386,7 @@ The module allows organizations to:
 
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/2699c8f6-306c-4a0e-aed5-586a4be64ccd">
 
-### **Risk Register & Control Design**
+### **Risk Register & Control Design Lifecycle**
 
 
 ```mermaid
