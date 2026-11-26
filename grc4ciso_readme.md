@@ -601,7 +601,7 @@ Most modules use three role levels:
 | **Control** | View controls and evidence | Create, update, and submit controls for review | Manage evaluation criteria and mark controls obsolete |
 | **ISMS** | View ISO controls, applicability statements, RACI, and KPIs | Maintain applicability statements, RACI, and KPIs | Manage ISO controls and ISMS catalogs |
 | **Compliance** | View frameworks and requirements | Update compliance versions and asset links | Manage frameworks, objectives, and requirements |
-| **AI** | View AI inventory and MCP information | Create and update operational AI and MCP records | Manage AI catalogs, use cases, and LLM models |
+| **AI** | View AI inventory and MCP information | Create and update operational AI and MCP records | Manage AI catalogs, use cases, and LLM models. Manages MCP security rules and has read-only access to other AI records. |
 
 ### Additional Roles
 
@@ -610,9 +610,7 @@ Most modules use three role levels:
 | **Control Approver** | Approves or rejects submitted controls. A user cannot approve a control they created or submitted. |
 | **Risk Register Approver** | Approves or rejects submitted risk register records in review. A user cannot approve a record they created or submitted. |
 | **Organizational Context Approver** | Approves or rejects submitted organizational context records in review. A user cannot approve a record they created or submitted. |
-| **Executive Dashboard Viewer** | Views dashboards and related Risk, Control, ISMS, and Compliance information. |
-| **GRC Auditor** | Provides broad read-only access to GRC information, excluding the AI module. |
-| **AI Security Administrator** | Manages MCP security rules and has read-only access to other AI records. |
+| **Auditor** | Provides broad read-only access to GRC information, including dashboards and related Risk, Control, ISMS, and Compliance information, excluding the AI module. |
 | **Odoo System Administrator** | Manages users and role assignments. |
 
 > Permissions are cumulative. Assigning multiple roles to a user combines the privileges granted by each role.
