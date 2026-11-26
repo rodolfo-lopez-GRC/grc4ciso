@@ -584,8 +584,6 @@ The module enables you to map controls to individual compliance requirements and
 
 ## **Roles and Privileges**
 
-## Roles and Privileges
-
 GRC4CISO uses Role-Based Access Control (RBAC) to manage what each user can see and do. Administrators assign roles according to the user’s responsibilities. A user may have roles in multiple modules, and their privileges are combined.
 
 Most modules use three role levels:
@@ -617,8 +615,88 @@ Most modules use three role levels:
 
 > Permissions are cumulative. Assigning multiple roles to a user combines the privileges granted by each role.
 
-## **Docker Installation**
+## Docker deployment
 
+This Compose setup builds an Odoo 19 Community image containing the six GRCBIT
+modules and their Python dependencies, and runs it with PostgreSQL 16. PostgreSQL
+is not published on the host. The database and Odoo filestore are stored in
+separate Docker volumes.
+
+### Prerequisites
+
+- Docker Engine and the Docker Compose v2 plugin (`docker compose version`).
+- Git and free local TCP ports 8069 and 8072.
+- Permission to run Docker commands. Docker access is privileged; protect the
+  host and Docker daemon.
+
+### First installation
+
+1. Clone the `19.0` branch and prepare the local configuration:
+
+   ```sh
+   git clone --branch 19.0 https://github.com/hackdoo/grc4ciso-community.git
+   cd grc4ciso-community
+   cp .env.example .env
+   cp config/odoo.conf.example config/odoo.conf
+   chmod 600 .env config/odoo.conf
+   ```
+
+2. Edit `.env` and replace `POSTGRES_PASSWORD` with a strong random password.
+   Edit `config/odoo.conf` and replace `admin_passwd` with a **different**
+   strong random master password. These files are ignored by Git; do not
+   commit or share them. Compose passes the database password through container
+   environment variables, which Docker administrators can inspect.
+
+   Odoo runs as UID 100 in the official image and must be able to read its
+   configuration. On a standard Linux Docker host, give that UID ownership of
+   the configuration file while keeping it private:
+
+   ```sh
+   sudo chown 100:101 config/odoo.conf
+   ```
+
+   With rootless Docker, user namespaces, or Docker Desktop, adjust host file
+   permissions for the mapped container user instead. Keep `.env` readable by
+   the account running Compose. After changing ownership, later edits to
+   `config/odoo.conf` may require `sudo`.
+
+3. Build and start the services:
+
+   ```sh
+   docker compose up -d --build
+   docker compose ps
+   docker compose logs -f odoo
+   ```
+
+4. Open **http://localhost:8069**. Create a database using the Odoo master
+   password from `config/odoo.conf`, and choose a separate administrator login
+   and password. From a remote host, use an SSH tunnel or a properly configured
+   HTTPS reverse proxy; the default bind address accepts local connections only.
+
+5. In Odoo, enable developer mode, open **Apps**, and select **Update Apps
+   List**. Remove the default Apps filter when searching for technical module
+   names. Install `grcbit_base`, `grcbit_risk_management`, `grcbit_iso27001`,
+   and `grcbit_compliance`. Install `grcbit_dashboard` and `grcbit_ai` if needed.
+   Odoo also installs declared module dependencies automatically. Assign GRC
+   roles to users as described in **Roles and access** above.
+
+To change the host ports, edit `ODOO_PORT` (8069) or `ODOO_GEVENT_PORT` (8072)
+in `.env` and run `docker compose up -d`. Both use `ODOO_BIND_ADDRESS`.
+Port 8072 is mapped for Odoo's gevent/WebSocket service when multiprocess mode
+is configured; the default single-process setup may not listen on it. If using
+a reverse proxy in multiprocess mode, route WebSocket traffic to that service.
+Avoid setting `ODOO_BIND_ADDRESS=0.0.0.0` without a firewall and HTTPS
+protection.
+
+### Production security
+
+This is a starting configuration, not a fully hardened production deployment.
+Use a reverse proxy with TLS, restrict network and database-manager access,
+configure Odoo appropriately for the trusted proxy, maintain regular tested
+backups, and patch the host and images. For reproducible deployments, pin image
+digests and Python dependency versions and review them when updating. The
+included PostgreSQL bootstrap user is a superuser; review database privileges
+and separation for your environment.
 
 ## **Demo**
 
