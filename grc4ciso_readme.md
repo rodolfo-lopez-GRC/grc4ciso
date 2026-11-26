@@ -565,38 +565,22 @@ flowchart LR
 
 ## **Information Security Management System (ISMS)**
 
-The platform provides you with the 93 ISO 27001:2022 controls already loaded, security attributues, security concepts, categories, so you basically need to complete the statement aplicability to show an Information Security Management System implemented in your organization.
+The Statement of Applicability establishes traceability between applicable ISO/IEC 27001 requirements, selected controls, identified risks, and supporting evidence. This helps demonstrate compliance and confirms that the selected controls are appropriate for treating the identified risks.
+The implementation status of each requirement is determined based on the status of its associated controls. Supporting documentation, such as policies, procedures, records, and other evidence, can be linked to demonstrate control implementation.
 
-<img width="794" height="428" alt="337296323-c78bc2e8-0ccb-4091-8deb-136f15a441c8" src="https://github.com/user-attachments/assets/7415d01a-5eac-47ef-b8c7-ed0c19bad768" />
+<img width="1338" height="536" alt="image" src="https://github.com/user-attachments/assets/f3f74b65-380a-4fb0-8a2f-6e38f2fd5fb6" />
+<img width="1338" height="539" alt="image" src="https://github.com/user-attachments/assets/abf29a76-578b-48fd-8370-05e120fd697f" />
 
-<img width="644" height="420" alt="337296477-297c9e79-0f83-45b7-ab6c-6ef943e45110" src="https://github.com/user-attachments/assets/1f9d1bf6-cc3a-4b8e-a73d-738845f28ae0" />
-
-<img width="892" height="393" alt="337297295-911eb6a7-1bf0-426c-a632-f056c7596e21" src="https://github.com/user-attachments/assets/05399801-fd98-4fc2-8c53-57b1eeb91f46" />
-
-
-Statement of applicability are related to controls, so you can show evidence of compliance with each requirement of the ISO27001 standard. This also ensures that the selected controls are aligned with the identified risks.
-The status is calculated based on the controls that are related to each requirement, so you can link it with policies, procedures or evidences that demonstrate its implementation.
-
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/8aa2bacd-019f-4a7e-9d2c-da70e9040251">
-
-
-Also, you can get reports and charts about the Information Security Management System status.
-
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/deed9426-47e6-4dd2-aeda-5d2f576f4063">
-
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/cff0da5b-1be5-4fc1-a098-9d17c60bc888">
 
 ## **Compliance**
 
-Stay compliant with cybersecurity frameworks. The platform also can be used to show compliance with legal, external or other compliance requirements like PCI, NIST, CIS Controls and OWASP.
+Maintain traceability across cybersecurity frameworks and compliance obligations. The platform helps organizations demonstrate compliance with applicable legal, regulatory, contractual, and external requirements, as well as recognized frameworks and standards such as PCI DSS, the NIST Cybersecurity Framework, CIS Controls, and OWASP guidance.
+The module enables you to map controls to individual compliance requirements and link the policies, procedures, records, and supporting evidence needed to demonstrate implementation.
 
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/83e2d39b-59d1-423a-9a98-7d4e144dd2a4">
+<img width="1340" height="424" alt="image" src="https://github.com/user-attachments/assets/0b5e6209-7674-4286-add0-947363d7e148" />
 
-In this module you can register the controls associated to each compliance requirement, so you can link it with policies, procedures or evidence that demonstrate its implementation. You can also get reports and charts about compliance status. 
+<img width="1336" height="573" alt="image" src="https://github.com/user-attachments/assets/ea555274-931a-4fee-8b28-6fcc956ab819" />
 
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/64a113e4-976a-4b0f-8dd9-a1816d97d8de">
-
-<img width="764" height="343" alt="337299666-47dc3712-03dc-4d15-aee8-0aa61769d6c8" src="https://github.com/user-attachments/assets/c1420b72-b845-4f1b-abf1-f38c3dc370a9" />
 
 ## **RBAC**
 
