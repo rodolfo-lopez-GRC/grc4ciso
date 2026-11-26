@@ -346,7 +346,7 @@ flowchart TD
 
 Once the organizational context has been established, the organization should identify, analyze, and evaluate the risk factors that could affect its business objectives, critical processes, or the confidentiality, integrity, and availability of information. These risk factors may be associated with IT systems, AI components, business processes, vendors, or other elements within the assessment scope. Inadequate or ineffective controls over any of these elements could compromise critical information, disrupt business operations, or contribute to the materialization of a risk.
 
-<img width="2762" height="1148" alt="image" src="https://github.com/user-attachments/assets/1832ced9-ac0b-421a-8566-8308a361671a" />
+<img width="1332" height="497" alt="image" src="https://github.com/user-attachments/assets/e784ec70-272f-4866-a89d-605f06dbfdd9" />
 
 For risk factors associated with IT systems and AI components, GRC4CISO provides integrated CVSS 3.0 and 4.0 calculators based on the Common Vulnerability Scoring System. The platform also includes CVE management capabilities, allowing technical vulnerabilities and related risk factors to be documented, analyzed, and incorporated into the risk assessment process.
 
