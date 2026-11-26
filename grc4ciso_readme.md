@@ -356,8 +356,6 @@ Inherent risk is calculated automatically based on the impact and likelihood lev
 
 Residual risk is also calculated automatically based on the design and effectiveness assessments of the controls assigned to treat the identified risk factors. This enables the organization to evaluate the level of risk that remains after the relevant controls have been implemented and assessed.
 
-<img width="2768" height="1124" alt="image" src="https://github.com/user-attachments/assets/56053e14-b95a-49f1-9aa0-7e332548e10f" />
-
 For AI risk assessments, GRC4CISO provides dedicated functionality to document AI system architectures and their components, including AI agents, AI hosts, large language models (LLMs), Model Context Protocol (MCP) servers, and integrations.
 
 The platform also includes an MCP security scanner that discovers the tools, resources, and prompts exposed by an MCP server. These capabilities are evaluated against the security rules configured in the platform to identify potential findings and assign risk scores. The AI system and its associated components and findings can then be mapped to the Risk Register, allowing traditional cybersecurity and AI-specific risks to be assessed through a unified risk management process.
@@ -384,7 +382,7 @@ The module allows organizations to:
 - Maintain an auditable history of control reviews, approvals, and status changes.
 - By connecting risks, controls, compliance requirements, and evidence, GRC4CISO helps organizations maintain end-to-end traceability and demonstrate how their control environment supports both risk treatment and compliance objectives.
 
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/2699c8f6-306c-4a0e-aed5-586a4be64ccd">
+<img width="1338" height="536" alt="image" src="https://github.com/user-attachments/assets/58812159-d329-4708-8cbb-4540104032ec" />
 
 ### **Risk Register & Control Design Lifecycle**
 
