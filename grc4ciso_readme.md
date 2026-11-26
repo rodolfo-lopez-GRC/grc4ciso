@@ -602,67 +602,8 @@ R - Read, W - Write, C - Create, u - Unlink
 | Compliance |R|R|R|R|RWCU|R|
 | Guest|R|R|R|R|R|R|
 
-## **Other Functionalities**
-
-Since this project is built on the Odoo platform, you can leverage its native functionalities to streamline your processes.
-
-Tracking Changes: Every modification to a record is automatically logged, providing full visibility and a reliable audit trail of all changes.
-
-<img width="1032" height="497" alt="526212828-907d448d-6921-4497-9928-0f618fde1684" src="https://github.com/user-attachments/assets/fee5fcff-5795-4985-9881-d8fd58e7d916" />
-
-Notifications and Collaboration: You can send notifications to other users to share updates, requirements, or any information that fosters collaboration.
-
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/603bf3d7-798c-43e9-a8b4-98f7481f9450">
-
-Activity Scheduling: Schedule activities such as risk assessments, set due dates, and assign owners to ensure accountability and timely execution.
-
-<img width="1672" height="590" alt="527407360-e0110234-164b-48d9-9943-20fe98ce7d56" src="https://github.com/user-attachments/assets/dd40087d-386f-4254-87c0-fd79c1298b66" />
-
 ## **Docker Installation**
 
-1. Install docker.
-2. Create docker instances, grc4ciso works with Odoo 16.
-   
-`docker run -d --net [YOUR_NETWORK] --restart=always -p 5432:5432 --shm-size=256m -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=[POSTGRES_PASSWORD] -e POSTGRES_DB=postgres --name [INSTANCE_NAME] postgres:latest`
-
-`docker run -d --net [YOUR_NETWORK] --restart=always -p 8069:8069 -p 8072:8072 --name [INSTANCE_NAME] --link [DB_INSTANCE_NAME]:db -e PASSWORD=[PSTGRES_PASSWORD] -t odoo:16.0-20250207`
-
-3. Update and Install packages into the odoo docker instance
-
-`docker exec -it -u 0 odoo_grc_test apt update`
-
-`docker exec -it -u 0 odoo_grc_test apt install git`
-
-`docker exec -it odoo_grc_test pip3 install cvss==2.6 xw_utils==1.1.12 json5==0.9.14 json2table`
-
-4. Configure Odoo https://[YOU_HOST]:8069
-
-5. Into your Odoo instance, clone the project in /mnt/extra-addons
-   
-`git clone https://github.com/OWASP/www-project-it-grc`
-   
-6. In /etc/odoo/odoo.conf add the addons-path www-project-it-grc
-
-<img width="869" height="77" alt="414022174-68c4e767-721e-4b0c-952a-05eabb88c4c5" src="https://github.com/user-attachments/assets/1ac58531-c2e7-4208-9c5c-a96c9428d89a" />
-
-7. Restart your docker odoo instance `docker restart [INSTANCE_NAME]`
-
-8. With "developer mode" execute "Apps" --> "Update Apps List".
-
-<img width="423" height="56" alt="414022472-98078aea-6f75-4582-8e9a-7112fa503413" src="https://github.com/user-attachments/assets/b0ab618a-d4ec-4aab-b485-bf2c587e86bf" />
-
-9. Install the grcbit_ modules in the following order: grcbit_base, grcbit_iso27001, grcbit_compliance, grcbit_threat_scenario, grcbit_cvss, grcbit_vulnerability_management, grcbit_risk_management  
-
-<img width="1042" height="405" alt="414068671-2f37c99b-3cec-439f-b02a-4c9e0e0d2c00" src="https://github.com/user-attachments/assets/0c42b4f0-c3fa-446b-8d74-e57d99eef3da" />
-
-10. It is recommended to configure a reverse proxy with SSL certificates and implement a firewall for secure installation.
-
-## **Import data**
-
-To import data to your database, you can use "Favorites" --> "Import records" option.  
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/6d6f9497-0186-441b-93dc-5f493a4ba6b7">
-
-Data repository: https://github.com/grcbit/grc4ciso-data-1 
 
 ## **Demo**
 
