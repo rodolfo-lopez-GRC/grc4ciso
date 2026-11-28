@@ -581,6 +581,120 @@ The module enables you to map controls to individual compliance requirements and
 
 <img width="1336" height="573" alt="image" src="https://github.com/user-attachments/assets/ea555274-931a-4fee-8b28-6fcc956ab819" />
 
+## Dashboard
+
+GRC4CISO provides interactive dashboards that consolidate risk, compliance, and control information into a centralized view. Dashboard results are calculated from the active records configured in the platform and can be filtered to support analysis, monitoring, and management reporting.
+
+### Risk Management
+
+The **Risk Management Dashboard** provides a consolidated view of active risk factors and their inherent and residual risk levels.
+
+Available filters include:
+
+- **Risk classification**
+  - Cybersecurity & Threat Risk
+  - Operational & Resilience Risk
+  - Compliance & Regulatory Risk
+  - Third-Party & Supply Chain Risk
+  - Strategic & Governance Risk
+  - Architecture & Technology Risk
+  - Data Lifecycle & Privacy Risk
+
+- **Risk assessment type**
+  - IT System
+  - Process
+  - Vendor
+  - Physical Location
+  - AI System
+
+- **Strategic risk**
+  - Filters risk factors associated with the strategic risks defined in the platform.
+
+The dashboard displays the total number of active risk factors and a risk matrix where:
+
+- Rows represent the **residual risk level**.
+- Columns represent the **inherent risk level**.
+- Colors indicate the **residual risk severity**.
+- Risk levels include Low, Medium, Moderate, High, Critical, and Not Assessed or Unknown.
+
+This dashboard helps users identify risk concentration, compare inherent and residual exposure, and monitor whether implemented controls are reducing organizational risk.
+
+<img width="1308" height="962" alt="image" src="https://github.com/user-attachments/assets/8ec59199-7055-47e1-939e-20da8afd1a4d" />
+
+
+### Compliance
+
+The **Compliance Dashboard** presents the implementation status of regulatory, industry, and governance frameworks configured in the platform.
+
+Supported dashboard filters include:
+
+- **Compliance version**
+- **Compliance level**
+  - Below 50%
+  - 50% to below 75%
+  - 75% to below 100%
+  - 100%
+  - No requirements
+
+Examples of supported compliance frameworks include:
+
+- EU Cyber Resilience Act, Regulation (EU) 2024/2847
+- EU General Data Protection Regulation, Regulation (EU) 2016/679
+- EU NIS2 Directive, Directive (EU) 2022/2555
+- ISO/IEC 27001:2022
+- NIST AI Risk Management Framework 1.0
+
+For each compliance version, the dashboard displays:
+
+- Overall compliance percentage.
+- Number of active requirements.
+- Number of requirements linked to active, approved controls.
+- Visual comparison between lower and higher compliance levels.
+
+An active requirement linked to at least one active, approved control receives a score of **100%**. Requirements without an active, approved control receive a score of **0%**.
+
+The compliance percentage is calculated as the average score across all active requirements belonging to active compliance objectives.
+
+> Dashboard percentages represent control linkage and approval status within GRC4CISO. They should not, by themselves, be interpreted as a legal determination, certification result, or independent compliance assessment.
+
+<img width="1934" height="952" alt="image" src="https://github.com/user-attachments/assets/4c7735b7-fda0-4dd6-b62a-21627017c001" />
+
+
+### ISMS ISO/IEC 27002 Controls
+
+The **ISMS ISO/IEC 27002 Controls Dashboard** provides an overview of the implementation and effectiveness of ISO/IEC 27002 controls.
+
+Controls can be filtered by category:
+
+- Organizational controls
+- People controls
+- Physical controls
+- Technological controls
+
+For each category, the dashboard shows the number of applicable statements and the following indicators:
+
+| Indicator | Description |
+|---|---|
+| **Control Status** | Measures the progress of the control design workflow. |
+| **Control Coverage** | Measures whether applicable ISO/IEC 27002 controls have an active and non-obsolete control design. |
+| **Control Design** | Measures the maturity of the criteria used to design the control. |
+| **Control Effectiveness** | Measures the assessed operating effectiveness of the control. |
+
+Each gauge averages the corresponding statement percentage for active and applicable statements whose ISO/IEC 27002 control and control category are active.
+
+The indicators are calculated as follows:
+
+- **Control coverage:** An ISO/IEC 27002 control receives 100% coverage when it has an active, non-obsolete control design. Otherwise, it receives 0%.
+- **Control status:** Design workflow stages are scored at 25%, 50%, 75%, and 100%.
+- **Control design:** Criterion levels from 1 to 5 are translated into scores from 20% to 100%.
+- **Control effectiveness:** Effectiveness criterion levels from 1 to 5 are translated into scores from 20% to 100%.
+- **Missing criteria:** Missing assessment criteria receive a score of 0%.
+- **Not assessed:** Categories without active and applicable statements are reported as not assessed.
+
+This dashboard helps organizations monitor control applicability, implementation progress, design maturity, coverage, and operating effectiveness across the ISO/IEC 27002 control categories.
+
+<img width="1938" height="758" alt="image" src="https://github.com/user-attachments/assets/627b3ff9-8d34-4c1e-8c21-11f2a6fcab1b" />
+
 
 ## **Roles and Privileges**
 
