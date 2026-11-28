@@ -816,7 +816,7 @@ and separation for your environment.
 ## **Demo**
 
 - https://democommunity.grc4ciso.com/
-- guest / guest123
+- grc4ciso / grc4ciso
 
 ## **Contact**
 
